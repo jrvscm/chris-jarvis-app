@@ -6,7 +6,6 @@ import {
   Redirect
 } from 'react-router-dom';
 
-import SplashPage from '../Splash';
 import HomePage from '../Home';
 import withAuthentication from '../session/withAuthentication';
 import * as routes from '../../constants/routes';
@@ -16,6 +15,7 @@ import './index.css';
 const App = () => (
   <Router>
     <Switch>
+    	<Redirect exact path="/" to={routes.HOME} />
       <Route exact path={routes.HOME} component={HomePage} />
     </Switch>
   </Router>

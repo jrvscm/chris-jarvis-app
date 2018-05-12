@@ -3,9 +3,11 @@ import { Redirect, Link } from 'react-router-dom';
 import colors from '../../colors';
 import glamorous from 'glamorous';
 
+import NavBar from '../NavBar';
+
 const HomePage = () => {
 	return(
-		<h1>HomePage</h1>
+		<NavBar />
 	)
 }
 
