@@ -6,9 +6,10 @@ import {
   Redirect
 } from 'react-router-dom';
 
+import SplashPage from '../Splash';
+import HomePage from '../Home';
 import withAuthentication from '../session/withAuthentication';
 import * as routes from '../../constants/routes';
-import HomePage from '../Home';
 
 import './index.css';
 
