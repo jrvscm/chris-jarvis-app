@@ -8,12 +8,9 @@ const INITIAL_STATE = {
 function navbar(state = INITIAL_STATE, action) {
   switch(action.type) {
     case UPDATE_DIMENSIONS: 
-      return {
-        ...state,
-        dimensions: action.dimensions
-      }
-      default:
-        return state;
+      return { ...state, dimensions: action.dimensions };
+    default:
+      return state;
   }
 }
 

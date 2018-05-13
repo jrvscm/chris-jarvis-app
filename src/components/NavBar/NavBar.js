@@ -1,19 +1,20 @@
 import React, { Component }from 'react';
 import glamorous from 'glamorous';
 import colors from '../../colors';
-import FaCode from 'react-icons/lib/fa/code';
 import { updateDimensions } from '../../actions/navbar';
 
 import NavButton from './NavButton';
 
 class NavBar extends Component {
 	componentDidMount() {
+		const { updateDimensions } = this.props;
 		updateDimensions(window.innerWidth)
-		window.addEventListener('resize', updateDimensions(window.innerWidth))
+		window.addEventListener('resize', () => updateDimensions(window.innerWidth))
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener('resize', updateDimensions(window.innerWidth))
+		const { updateDimensions } = this.props;
+		window.removeEventListener('resize', () => updateDimensions(window.innerWidth))
 	}
 
 	render() {
