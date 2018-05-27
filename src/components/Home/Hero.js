@@ -5,9 +5,6 @@ import { Col, Row } from '../UIElements';
 
 const Hero = () => (
 	<Container>
-		<ImgCol>
-			<Portrait src='http://placeholder.pics/svg/500x500' />
-		</ImgCol>
 		<PitchCol>
 			<Heading>
 				I help web developers go pro &amp; establish rewarding careers in the tech industry.
@@ -16,7 +13,7 @@ const Hero = () => (
 				My free career search guide has helped <strong>thousands</strong> of people just like you find their first developer jobs.
 				Click the link below to get started. 
 			</SubHeading>
-			<InnerRow>
+			<ListRow>
 				<Col>
 					<List>
 						<ListItem>Proven professional templates</ListItem>
@@ -31,10 +28,8 @@ const Hero = () => (
 						<ListItem>Articles, Youtube, Twitch.tv &amp; Podcasts</ListItem>
 					</List>
 				</Col>
-			</InnerRow>
-			<Row>
-				<Button>Click Here</Button>
-			</Row>	
+			</ListRow>
+			<Button>Click Here</Button>
 		</PitchCol>
 	</Container>
 )
@@ -47,28 +42,15 @@ const mediaQueries = {
   phone: '@media only screen and (max-width: 430px)',
 }
 
-const Portrait = glamorous.img({
-	height: 500,
-	width: 500,
-	marginTop: 100,
-	marginBottom: 100,
-	[mediaQueries.medium]: {
-		width: `100%`
-	}
-})
-
 const Container = glamorous.div({
 	position: `relative`,
 	display: `flex`,
 	flexDirection: `row`,
-	justifyContent: `space-around`,
+	justifyContent: `flex-end`,
 	alignItems: `center`,
-	marginTop: 100,
-	paddingRight:` 10%`,
-	paddingLeft: `10%`,
-	[mediaQueries.medium]: {
-		padding: 0
-	}
+	marginTop: 200,
+	marginRight:` 15%`,
+	marginLeft: `15%`
 })
 
 const PitchCol = glamorous.div({
@@ -77,22 +59,11 @@ const PitchCol = glamorous.div({
 	flexDirection: `column`,
 	justifyContent: `center`,
 	alignItems: `center`,
-	marginLeft: 100,
-	maxWidth: 600,
-	zIndex: 200
-})
-
-const ImgCol = glamorous.div({
-	position: `relative`,
-	display: `flex`,
-	flexDirection: `column`,
-	justifyContent: `center`,
-	alignItems: `center`,
-	maxWidth: 600,
-	zIndex: 50
+	margin: 5,
+	maxWidth: 600
 })	
 
-const InnerRow = glamorous.div({
+const ListRow = glamorous.div({
 	display: `flex`,
 	flexDirection: `row`,
 	justifyContent: `space-between`,
@@ -115,17 +86,17 @@ const SubHeading = glamorous.h2({
 const List = glamorous.ul({
 	margin: 0,
 	padding: 0,
-	width: `300px`,
+	width: 300,
 	listStyle: `square inside none`
 })
 
 const ListItem = glamorous.li({
 	margin: 5,
-	fontSize: 14
+	fontSize: 14,
 })
 
 const Button = glamorous.button({
 	height: 50,
 	width: 300,
-	margin: 25
+	marginTop: 25
 })
