@@ -1,7 +1,6 @@
 import React, { Component }from 'react';
 import glamorous from 'glamorous';
 import colors from '../../colors';
-import { updateDimensions } from '../../actions/navbar';
 
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav';

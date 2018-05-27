@@ -1,14 +1,19 @@
 import React from 'react';
-import { Redirect, Link } from 'react-router-dom';
-import colors from '../../colors';
 import glamorous from 'glamorous';
 
 import NavBar from '../NavBar';
+import Hero from './Hero';
 
 const HomePage = () => {
 	return(
-		<NavBar />
+		<Page>
+			<NavBar />
+			<Hero />
+		</Page>
 	)
 }
 
 export default HomePage;
+
+const Page = glamorous.div({
+})

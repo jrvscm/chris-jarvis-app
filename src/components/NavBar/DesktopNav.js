@@ -1,6 +1,4 @@
-import React from 'react';
-import glamorous from 'glamorous';
-import colors from '../../colors';		
+import React from 'react';	
 
 import NavButton from './NavButton';	
 import { List, Row, Logo } from '../UIElements';	

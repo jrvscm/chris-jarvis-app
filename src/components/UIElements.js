@@ -1,8 +1,7 @@
-import React from 'react';
 import glamorous from 'glamorous';
 import colors from '../colors';
 
-const { transparentPurple, lessTransparentWhite } = colors;
+const { transparentPurple } = colors;
 
 export const List = glamorous.ul({
 	display: `inline-flex`,
@@ -18,6 +17,7 @@ export const Col = glamorous.div({
 	display: `flex`,
 	flexDirection: `column`,
 	justifyContent: `center`,
+	flexWrap: `wrap`,
 	alignItems: `center`,
 	width: `100%`
 })
