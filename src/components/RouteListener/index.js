@@ -21,7 +21,7 @@ class RouteListener extends Component {
 	routeChanged () {
     let { location, push, replace, actions } = this.props
 		const properties = {location: location.pathname}
-    
+    console.log({location: location.pathname})
    	//mixpanel.track('Page_Viewed', properties)
    	//ReactGA.initialize('UA-000000-01');
     //ReactGA.pageview(location.pathname)

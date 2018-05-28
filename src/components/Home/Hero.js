@@ -10,7 +10,7 @@ const Hero = () => (
 				I help web developers go pro &amp; establish rewarding careers in the tech industry.
 			</Heading>
 			<SubHeading>
-				My free career search guide has helped <strong>thousands</strong> of people just like you find their first developer jobs.
+				My free career search guide has helped <em>thousands</em> of people just like you find their first developer jobs.
 				Click the link below to get started. 
 			</SubHeading>
 			<ListRow>
@@ -29,7 +29,7 @@ const Hero = () => (
 					</List>
 				</Col>
 			</ListRow>
-			<Button>Click Here</Button>
+			<Button>Get the guide!</Button>
 		</PitchCol>
 	</Container>
 )

@@ -5,3 +5,4 @@ export const LOG_OUT = '/logout';
 export const PASSWORD_FORGET = '/pw-forget';
 export const HOME = '/home';
 export const ACCOUNT = '/account';
+export const BLOG = '/blog';

@@ -25,7 +25,7 @@ const Container = glamorous.li({
 	justifyContent: `center`,
 	alignItems: `center`,
 	backgroundColor:`transparent`,
-	margin: 5,
+	margin: 10,
 	padding: 5,
 	width: 100,
 	transform: `all .2s ease`,
