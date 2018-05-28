@@ -1,10 +1,12 @@
 import React from 'react';
 import glamorous from 'glamorous';
 import colors from '../../colors';
+import { withRouter } from 'react-router-dom';
+import { BLOG } from '../../constants/routes';
 
-const NavButton = ({title, subTitle}) => {
+const NavButton = withRouter(({history, title, subTitle, path}) => {
 	return(
-		<Container>
+		<Container onClick={() => history.push(path)}>
 			<Title>
 				{title}
 			</Title>
@@ -13,7 +15,7 @@ const NavButton = ({title, subTitle}) => {
 			</SubTitle>
 		</Container>
 	)
-}
+})
 
 export default NavButton;
 

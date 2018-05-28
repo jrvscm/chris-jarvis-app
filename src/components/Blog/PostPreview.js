@@ -1,47 +1,57 @@
 import React from 'react';
 import glamorous from 'glamorous';
 import colors from '../../colors';
+import { isLoaded } from 'react-redux-firebase';
 
-const PostPreview = ({post}) => (
+import PostAuthor from './PostAuthor';
+
+const PostPreview = ({post, authors}) => (
 	<Container>
-		<Header src={post.image}>
-			<H2>{post.title}</H2>
-		</Header>
-		<h4>{post.author}</h4>
-		<Container>
-			<p>
-				{	post.content[0] }
-			</p>
-		</Container>
+		<Image src={post.image} />
+		<H2>{post.title}</H2>
+		<LogLine>{post.logline}</LogLine>
+		{ 
+			Object.keys(authors).map(key => 
+				<PostAuthor 
+					key={key} 
+					author={authors[key]} 
+					date={post.date} 
+				/>
+			) 
+		}
 	</Container>
 )
 
 export default PostPreview;
 
-const { slateBlue } = colors;
+const { slateBlue, greyOne } = colors;
 
 const Container = glamorous.div({
 	display: `flex`,
 	flexDirection: `column`,
 	justifyContent: `center`,
-	alignItems: `center`,
-	margin: 25,
-	border: `1px solid slateBlue`
+	alignItems: `flex-start`,
+	margin: 25
 })
 
-const Header = glamorous.div({
-	display: `flex`,
-	flexDirection: `row`,
-	alignItems: `center`,
-	justifyContent: `center`,
-	width: `100%`,
-	height: 200,
-	color: slateBlue,
-	fontSize: 32
+const Image = glamorous.div({
+	height: 300,
+	width: 500,
 }, (props) => ({
 	background: `url(${props.src}) center center no-repeat`,
 	backgroundSize: `cover`
 }))
 
-const H2 = glamorous.h2({
+const LogLine = glamorous.p({
+	marginTop: 15,
+	marginBottom: 15,
+	fontSize: 16,
+	color: greyOne
 })
+
+const H2 = glamorous.h2({
+	fontSize: 26,
+	marginTop: 15,
+	marginBottom: 0
+})
+

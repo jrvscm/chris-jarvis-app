@@ -3,6 +3,7 @@ import glamorous from 'glamorous';
 
 import NavButton from './NavButton';
 import { Row, Logo } from '../UIElements';
+import { BLOG } from '../../constants/routes';
 
 const toggleHiddenState = (props) => {
 	const { hidden, setHiddenState } = props;
@@ -19,26 +20,32 @@ const MobileNav = (props) => (
 		<Col status={props.hidden}>
 			<List status={props.hidden}>
 				<NavButton 
+					path={''}
 					title={`START HERE`}
 					subTitle={`NEW HERE? CLICK THIS`}
 				/>
-				<NavButton 
+				<NavButton
+					path={''} 
 					title={`ABOUT`}
 					subTitle={`WHO I AM?`}
 				/>
 				<NavButton
+					path={''}
 					title={`COURSES`}
 					subTitle={`COMING SOON`}
 				/>		
-				<NavButton 
+				<NavButton
+					path={''} 
 					title={`CONTACT`}
 					subTitle={`GET IN TOUCH`}
 				/>					
-				<NavButton 
+				<NavButton
+					path={BLOG} 
 					title={`BLOG`}
 					subTitle={`I WRITE`}
 				/>
 				<NavButton 
+					path={''}
 					title={`RESOURCES`}
 					subTitle={`TOOLS OF THE TRADE`}
 				/>							

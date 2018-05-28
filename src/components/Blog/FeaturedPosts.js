@@ -3,9 +3,17 @@ import glamorous from 'glamorous';
 
 import PostPreview from './PostPreview';
 
-const FeaturedPosts = ({posts}) => (
+const FeaturedPosts = ({posts, authors}) => (
 	<Container>
-		{ Object.keys(posts).map(key => <PostPreview key={key} post={posts[key]} />) }
+		{ 
+			Object.keys(posts).map(key => 
+				<PostPreview 
+					key={key} 
+					post={posts[key]} 
+					authors={authors} 
+				/>
+			) 
+		}
 	</Container>
 )
 
