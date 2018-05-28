@@ -7,16 +7,20 @@ import Blog from '../Blog';
 
 const populates = [
 	{ root: 'posts', child: 'posts' }
-]
+];
 const mapStateToProps = (state) => ({
-	posts:	getVal(state.firebase, 'data/posts'),
+	smallPosts:	populate(state.firebase, 'featured_small', populates),
+	mediumPosts: populate(state.firebase, 'featured_medium', populates),
+	largePosts: populate(state.firebase, 'featured_large', populates),
 	authors: getVal(state.firebase, 'data/authors')
 })
 const mapDispatchToProps = {
 };
 export default compose(
   firebaseConnect([
-  	{ path: 'featured', populates: populates }, 
+  	{ path: 'featured_small', populates: populates },
+  	{ path: 'featured_medium', populates: populates },
+  	{ path: 'featured_large', populates: populates },
   	{ path: 'authors' }
   ]),
   connect(mapStateToProps, mapDispatchToProps)

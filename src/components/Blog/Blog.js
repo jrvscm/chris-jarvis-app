@@ -5,8 +5,8 @@ import { isLoaded } from 'react-redux-firebase';
 import NavBar from '../NavBar';
 import FeaturedPosts from './FeaturedPosts';
 
-const Blog = ({posts, authors}) => {
-	if(!isLoaded(posts, authors)) {
+const Blog = ({smallPosts, authors}) => {
+	if(!isLoaded(smallPosts, authors)) {
 		return(<div>...Loading</div>)
 	}
 
@@ -14,8 +14,8 @@ const Blog = ({posts, authors}) => {
 		<Page>
 			<NavBar />
 			<FeaturedPosts 
-				posts={posts} 
-				authors={authors} 
+				posts={smallPosts.posts}
+				authors={authors}
 			/>
 		</Page>
 	)
