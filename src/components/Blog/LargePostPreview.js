@@ -5,7 +5,7 @@ import { isLoaded } from 'react-redux-firebase';
 
 import PostAuthor from './PostAuthor';
 
-const PostPreview = ({post, authors}) => (
+const LargePostPreview = ({post, authors}) => (
 	<Container>
 		<Image src={post.image} />
 		<H2>{post.title}</H2>
@@ -22,7 +22,7 @@ const PostPreview = ({post, authors}) => (
 	</Container>
 )
 
-export default PostPreview;
+export default LargePostPreview;
 
 const { slateBlue, greyOne } = colors;
 
@@ -31,12 +31,13 @@ const Container = glamorous.div({
 	flexDirection: `column`,
 	justifyContent: `center`,
 	alignItems: `flex-start`,
-	margin: 25
+	height: 400,
+	minWidth: `100%`
 })
 
 const Image = glamorous.div({
-	height: 300,
-	width: 500,
+	height: `100%`,
+	width: `100%`,
 }, (props) => ({
 	background: `url(${props.src}) center center no-repeat`,
 	backgroundSize: `cover`
