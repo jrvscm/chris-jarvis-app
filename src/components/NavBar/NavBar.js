@@ -31,16 +31,15 @@ class NavBar extends Component {
 
 export default NavBar;
 
-const { slateBlue } = colors;
-
 const Container = glamorous.div({
 	position: `fixed`,
 	top: 0,
 	left: 0,
 	right: 0,
-	backgroundColor: slateBlue,
+	backgroundColor: colors.themeGrey,
 	display: `flex`,
 	flexDirection: `row`,
 	alignItems: `center`,
 	justifyContent: `center`,
+	borderBottom: `1px solid ${colors.themeOrange}`
 })

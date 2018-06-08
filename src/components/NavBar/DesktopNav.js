@@ -1,48 +1,31 @@
 import React from 'react';
 import { BLOG } from '../../constants/routes';
+import glamorous from 'glamorous';
 
 import NavButton from './NavButton';	
-import { List, Row, Logo } from '../UIElements';	
+import { List, Row } from '../UIElements';	
 
 const DesktopNav = () => (
-	<Row>
-		<List>
-			<NavButton 
-				path={''}
-				title={`START HERE`}
-				subTitle={`NEW HERE? CLICK THIS`}
-			/>
-			<NavButton 
-				path={''}
-				title={`ABOUT`}
-				subTitle={`WHO I AM?`}
-			/>
-			<NavButton
-				path={''}
-				title={`COURSES`}
-				subTitle={`COMING SOON`}
-			/>	
-		</List>	
-		<Logo>
-		</Logo>			
-		<List>	
-			<NavButton 
-				path={''}
-				title={`CONTACT`}
-				subTitle={`GET IN TOUCH`}
-			/>					
-			<NavButton 
-				path={BLOG}
-				title={`BLOG`}
-				subTitle={`I WRITE`}
-			/>
-			<NavButton 
-				path={''}
-				title={`RESOURCES`}
-				subTitle={`TOOLS OF THE TRADE`}
-			/>							
-		</List>
-	</Row>
+	<MainHeader>
+		<Row>
+		</Row>
+	</MainHeader>
 )
 
 export default DesktopNav;
+
+const MainHeader = glamorous.div({
+	height: `30vh`,
+	width: `100%`,
+	display: `flex`,
+	flexDirection: `column`,
+	alignItems: `center`,
+	justifyContent: `flex-start`
+})
+
+const Logo = glamorous.div({
+	height: 50,
+	width: 50,
+	borderRadius: `50%`,
+	backgroundColor: `white`
+})

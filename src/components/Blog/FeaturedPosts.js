@@ -8,7 +8,7 @@ import SmallPostPreview from './SmallPostPreview';
 
 const FeaturedPosts = ({largePosts, smallPosts, mediumPosts, authors}) => (
 	<Container>
-		<Row>
+		<LargeRow>
 			{ 
 				Object.keys(largePosts).map(key => 
 					<LargePostPreview 
@@ -18,8 +18,8 @@ const FeaturedPosts = ({largePosts, smallPosts, mediumPosts, authors}) => (
 					/>
 				) 
 			}
-		</Row>
-		<Row>
+		</LargeRow>
+		<MediumRow>
 			{ 
 				Object.keys(mediumPosts).map(key => 
 					<MediumPostPreview 
@@ -29,8 +29,8 @@ const FeaturedPosts = ({largePosts, smallPosts, mediumPosts, authors}) => (
 					/>
 				) 
 			}
-		</Row>
-		<Row>	
+		</MediumRow>
+		<MediumRow>	
 			{ 
 				Object.keys(smallPosts).map(key => 
 					<SmallPostPreview 
@@ -40,7 +40,7 @@ const FeaturedPosts = ({largePosts, smallPosts, mediumPosts, authors}) => (
 					/>
 				) 
 			}
-		</Row>
+		</MediumRow>
 	</Container>
 )
 
@@ -52,16 +52,27 @@ const Container = glamorous.div({
 	justifyContent: `center`,
 	alignItems: `center`,
 	width: `100%`, 
-	marginTop: 100
+	marginTop: `30vh`
 })
 
-const Row = glamorous.div({
+const LargeRow = glamorous.div({
 	display: `flex`,
 	flexDirection: `row`,
 	flexWrap: `wrap`,
 	alignItems: `center`,
-	justifyContent: `space-between`,
-	minWidth: `80%`,
+	justifyContent: `flex-start`,
+	width: `100%`,
+	marginTop: 0,
+	marginBottom: 25
+})
+
+const MediumRow = glamorous.div({
+	display: `flex`,
+	flexDirection: `row`,
+	flexWrap: `wrap`,
+	alignItems: `center`,
+	justifyContent: `flex-start`,
+	maxWidth: `80%`,
 	marginTop: 25,
 	marginBottom: 25
 })

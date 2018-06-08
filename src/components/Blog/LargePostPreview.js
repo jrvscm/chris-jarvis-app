@@ -7,18 +7,22 @@ import PostAuthor from './PostAuthor';
 
 const LargePostPreview = ({post, authors}) => (
 	<Container>
-		<Image src={post.image} />
-		<H2>{post.title}</H2>
-		<LogLine>{post.logline}</LogLine>
-		{ 
-			Object.keys(authors).map(key => 
-				<PostAuthor 
-					key={key} 
-					author={authors[key]} 
-					date={post.date} 
-				/>
-			) 
-		}
+		<Col>
+			<Image src={post.image} />
+		</Col>
+		<MetaCol style={{width: "45vw"}}>
+			<H2>{post.title}</H2>
+			<LogLine>{post.logline}</LogLine>
+			{ 
+				Object.keys(authors).map(key => 
+					<PostAuthor 
+						key={key} 
+						author={authors[key]} 
+						date={post.date} 
+					/>
+				) 
+			}
+		</MetaCol>
 	</Container>
 )
 
@@ -28,11 +32,32 @@ const { slateBlue, greyOne } = colors;
 
 const Container = glamorous.div({
 	display: `flex`,
-	flexDirection: `column`,
+	flexDirection: `row`,
 	justifyContent: `center`,
 	alignItems: `flex-start`,
-	height: 400,
+	height: `60vh`,
 	minWidth: `100%`
+})
+
+const Col = glamorous.div({
+	height: `100%`,
+	width: `100%`,
+	display: `flex`,
+	flexDirection: `column`,
+	alignItems: `center`,
+	justifyContent: `center`
+})
+
+const MetaCol = glamorous.div({
+	height: `100%`,
+	width: `100%`,
+	display: `flex`,
+	flexDirection: `column`,
+	alignItems: `flex-start`,
+	marginTop: 15,
+	marginRight: 50,
+	marginLeft: 25,
+	marginBottom:0
 })
 
 const Image = glamorous.div({

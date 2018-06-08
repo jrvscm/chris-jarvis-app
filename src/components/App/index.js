@@ -19,7 +19,7 @@ const App = () => (
     <div>
       <RouteListener />
       <Switch>
-    	 <Redirect exact path="/" to={routes.HOME} />
+    	 <Redirect exact path="/" to={routes.BLOG} />
         <Route exact path={routes.HOME} component={HomePage} />
         <Route exact path={routes.BLOG} component={Blog} />
       </Switch>
