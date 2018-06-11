@@ -4,10 +4,9 @@ import colors from '../../colors';
 
 const PostAuthor = ({authors, author, date}) => (
 	<Container>
-		<Avatar src={author.avatar} />
 		<Col>
-			<H4>{author.name}</H4>
 			<PostDate>{date}</PostDate>
+			<H4>{author.name}</H4>
 		</Col>
 	</Container>
 )
@@ -19,7 +18,7 @@ const { slateBlue, greyOne } = colors;
 const Container = glamorous.div({
 	display: `flex`,
 	flexDirection: `row`,
-	justifyContent: `center`,
+	justifyContent: `flex-start`,
 	alignItems: `center`
 })
 
@@ -32,6 +31,7 @@ const Col = glamorous.div({
 
 const PostDate = glamorous.p({
 	fontSize: 16,
+	fontWeight: `bold`,
 	padding:0,
 	margin: 2,
 	color: greyOne

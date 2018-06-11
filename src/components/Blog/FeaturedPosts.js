@@ -8,28 +8,6 @@ import SmallPostPreview from './SmallPostPreview';
 
 const FeaturedPosts = ({largePosts, smallPosts, mediumPosts, authors}) => (
 	<Container>
-		<LargeRow>
-			{ 
-				Object.keys(largePosts).map(key => 
-					<LargePostPreview 
-						key={key} 
-						post={largePosts[key]} 
-						authors={authors} 
-					/>
-				) 
-			}
-		</LargeRow>
-		<MediumRow>
-			{ 
-				Object.keys(mediumPosts).map(key => 
-					<MediumPostPreview 
-						key={key} 
-						post={mediumPosts[key]} 
-						authors={authors} 
-					/>
-				) 
-			}
-		</MediumRow>
 		<MediumRow>	
 			{ 
 				Object.keys(smallPosts).map(key => 
@@ -51,8 +29,7 @@ const Container = glamorous.div({
 	flexDirection: `Column`,
 	justifyContent: `center`,
 	alignItems: `center`,
-	width: `100%`, 
-	marginTop: `30vh`
+	width: `100%`
 })
 
 const LargeRow = glamorous.div({

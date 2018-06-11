@@ -4,22 +4,16 @@ import colors from '../../colors';
 import { isLoaded } from 'react-redux-firebase';
 
 import PostAuthor from './PostAuthor';
+import MediaCard from '../MediaCard';
 
 const SmallPostPreview = ({post, authors}) => (
-	<Container>
-		<Image src={post.image} />
-		<H2>{post.title}</H2>
-		<LogLine>{post.logline}</LogLine>
-		{ 
-			Object.keys(authors).map(key => 
-				<PostAuthor 
-					key={key} 
-					author={authors[key]} 
-					date={post.date} 
-				/>
-			) 
-		}
-	</Container>
+	<MediaCard 
+		image={post.image}
+		title={post.title}
+		logline={post.logline}
+		authors={authors}
+		date={post.date}
+	/>
 )
 
 export default SmallPostPreview;
