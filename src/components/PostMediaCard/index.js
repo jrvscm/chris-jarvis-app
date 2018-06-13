@@ -30,7 +30,8 @@ const styles = {
   },
   card: {
     maxWidth: 345,
-    margin: 25
+    marginTop: 25,
+    textAlign: `left`
   },
   media: {
     height: 0,
@@ -38,10 +39,13 @@ const styles = {
   },
   date: {
     fontWeight: `bold`
+  },
+  para: {
+    color: colors.textGrey
   }
 };
 
-  const MediaCard = (props) => {
+  const PostMediaCard = (props) => {
   const { classes } = props;
   return (
     <div>
@@ -58,7 +62,7 @@ const styles = {
           <Typography gutterBottom variant="headline" component="h2" color="secondary">
             {props.title}
           </Typography>
-          <Typography component="p">
+          <Typography component="p" className={classes.para}>
             {props.logline}
           </Typography>
         </CardContent>
@@ -75,8 +79,8 @@ const styles = {
   );
 }
 
-MediaCard.propTypes = {
+PostMediaCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MediaCard);
+export default withStyles(styles)(PostMediaCard);
