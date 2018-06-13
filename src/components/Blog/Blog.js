@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import glamorous from 'glamorous';
 import { isLoaded } from 'react-redux-firebase';
 
-import NavBar from '../NavBar';
 import FeaturedPosts from './FeaturedPosts';
 
 const Blog = ({smallPosts, mediumPosts, largePosts, authors}) => {
@@ -12,7 +11,6 @@ const Blog = ({smallPosts, mediumPosts, largePosts, authors}) => {
 
 	return(
 		<Page>
-			<NavBar />
 			<FeaturedPosts 
 				largePosts={largePosts.posts}
 				mediumPosts={mediumPosts.posts}
