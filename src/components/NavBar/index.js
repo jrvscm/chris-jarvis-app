@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Mask, Row, Col, Fa, Button, View, Container, Card, CardBody, Input, FormInline } from 'mdbreact';
+import './index.css';
 
 class NavBar extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class NavBar extends Component {
 	render() {
   const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.handleNavbarClick}/>		
 		return(
- 			<div>
+ 			<div id="custom-nav">
   			<Navbar dark expand="md" fixed="top" scrolling>
     			<Container>
      			<NavbarBrand>
@@ -48,7 +49,7 @@ class NavBar extends Component {
             			<NavLink to="/resources">Resources</NavLink>
           			</NavItem>
           			<NavItem>
-            			<NavLink to="/resources">Portfolio</NavLink>
+            			<NavLink to="/Portfolio">Portfolio</NavLink>
           			</NavItem>
         			</NavbarNav>
         			<NavbarNav right >

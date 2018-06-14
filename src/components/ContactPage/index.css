@@ -10,20 +10,6 @@
   line-height: 1.7;
 }
 
-#contactformpage .navbar {
-  transition: background .5s ease-in-out,padding .5s ease-in-out;
-}
-
-#contactformpage .top-nav-collapse {
-  background: #424f95 !important;
-}
-
-@media (max-width: 768px) {
-  #contactformpage .navbar:not(.top-nav-collapse) {
-      background: #424f95 !important;
-  }
-}
-
 #contactformpage .form-check {
   margin-bottom: 0!important;
 }

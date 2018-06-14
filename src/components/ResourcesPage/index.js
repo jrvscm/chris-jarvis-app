@@ -5,7 +5,6 @@ import './index.css'
 
 class ResourcesPage extends React.Component {
   render(){
-  const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.handleNavbarClick}/>
     return (
       <div id="classicformpage">
         <NavBar />

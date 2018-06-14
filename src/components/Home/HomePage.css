@@ -17,17 +17,3 @@
 #apppage h6 {
   line-height: 1.7;
 }
-
-#apppage .navbar {
-  transition: background .5s ease-in-out,padding .5s ease-in-out;
-}
-
-#apppage .top-nav-collapse {
-  background: #424f95 !important;
-}
-
-@media (max-width: 768px) {
-  #apppage .navbar:not(.top-nav-collapse) {
-      background: #424f95 !important;
-  }
-}
