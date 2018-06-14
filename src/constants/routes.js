@@ -7,3 +7,5 @@ export const HOME = '/home';
 export const ACCOUNT = '/account';
 export const BLOG = '/blog';
 export const TEST = '/test';
+export const CONTACT = '/contact';
+export const RESOURCES = '/resources';
