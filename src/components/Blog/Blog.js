@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
 import glamorous from 'glamorous';
 import { isLoaded } from 'react-redux-firebase';
-import { Carousel, CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator, Container } from 'mdbreact';
+import { 
+  Carousel, 
+  CarouselControl, 
+  CarouselInner, 
+  CarouselItem, 
+  CarouselIndicators, 
+  CarouselIndicator, 
+  Container
+} from 'mdbreact';
 
 import NavBar from '../NavBar';
-import FeaturedPosts from './FeaturedPosts';
+import FeaturedPostsRow from './FeaturedPostsRow';
+import CustomFooter from '../Footer';
 import './index.css'
 
 class Blog extends Component {
@@ -49,12 +58,13 @@ class Blog extends Component {
   const { activeItem } = this.state;
   const {smallPosts, mediumPosts, largePosts, authors} = this.props;
 
-   ///for data target smallPosts.posts to get teh posts
+   ///for data target smallPosts.posts to get the posts
  	if(!isLoaded(smallPosts, mediumPosts, largePosts, authors)) {
 		return(<div>...Loading</div>)
 	}
 
   return(
+  <div>  
     <div>
     	<NavBar />
     	<div id="carousel-wrapper">
@@ -77,15 +87,20 @@ class Blog extends Component {
           </CarouselInner>
           <CarouselControl direction="prev" role="button" onClick={() => { this.prev(); }} />
           <CarouselControl direction="next" role="button" onClick={() => { this.next(); }} />
-          <CarouselIndicators>
-            <CarouselIndicator img="https://mdbootstrap.com/img/Photos/Others/Carousel-thumbs/img%20(88).jpg" active={activeItem === 1 ? true : false} onClick={() => { this.goToIndex(1); }}></CarouselIndicator>
-            <CarouselIndicator img="https://mdbootstrap.com/img/Photos/Others/Carousel-thumbs/img%20(121).jpg" active={activeItem === 2 ? true : false} onClick={() => { this.goToIndex(2); }}></CarouselIndicator>
-            <CarouselIndicator img="https://mdbootstrap.com/img/Photos/Others/Carousel-thumbs/img%20(31).jpg" active={activeItem === 3 ? true : false} onClick={() => { this.goToIndex(3); }}></CarouselIndicator>
-          </CarouselIndicators>
         </Carousel>
       </Container>
     	</div>
     </div>
+    <FeaturedPostsRow 
+      authors={authors}
+      posts={smallPosts}
+      rowTitle={"Featured Posts"} 
+      logline={"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."} 
+    />
+    <FeaturedPostsRow authors={authors} posts={smallPosts} />
+    <FeaturedPostsRow authors={authors} posts={smallPosts} /> 
+    <CustomFooter />
+  </div>
     );
   }
 }
