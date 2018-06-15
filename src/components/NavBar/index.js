@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Mask, Row, Col, Fa, Button, View, Container, Card, CardBody, Input, FormInline } from 'mdbreact';
+import { withRouter } from 'react-router-dom';
 import './index.css';
 
 class NavBar extends Component {
@@ -26,48 +27,49 @@ class NavBar extends Component {
 	
 	render() {
   const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.handleNavbarClick}/>		
-		return(
- 			<div id="custom-nav">
-  			<Navbar dark expand="md" fixed="top" scrolling>
-    			<Container>
+	const { pathname } = this.props.location;
+  return(
+ 		<div id="custom-nav">
+  		<Navbar dark expand="md" fixed="top" scrolling>
+    		<Container>
      			<NavbarBrand>
         			<strong className="white-text">MDB</strong>
-      			</NavbarBrand>
-      			<NavbarToggler onClick = { this.onClick } />
-      			<Collapse isOpen = {this.state.collapse} navbar>
-        			<NavbarNav left>
-          			<NavItem active>
-            			<NavLink to="/">Home</NavLink>
-          			</NavItem>
-          			<NavItem>
-            			<NavLink to="/contact">Contact</NavLink>
-          			</NavItem>
-          			<NavItem>
-            			<NavLink to="/blog">Blog</NavLink>
-          			</NavItem>
-          			<NavItem>
-            			<NavLink to="/resources">Resources</NavLink>
-          			</NavItem>
-          			<NavItem>
-            			<NavLink to="/Portfolio">Portfolio</NavLink>
-          			</NavItem>
-        			</NavbarNav>
-        			<NavbarNav right >
-          			<NavItem>
-            			<FormInline waves>
-              			<div className="md-form my-0">
-                			<input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
-              			</div>
-            			</FormInline>
-          			</NavItem>
-        			</NavbarNav>
-      			</Collapse>
-    			</Container>
-  			</Navbar>
+      		</NavbarBrand>
+      		<NavbarToggler onClick = { this.onClick } />
+      		<Collapse isOpen = {this.state.collapse} navbar>
+        		<NavbarNav left>
+          		<NavItem className={pathname === '/home' ? 'active' : null}>
+            		<NavLink to="/home">Home</NavLink>
+          		</NavItem>
+          		<NavItem className={pathname === '/contact' ? 'active' : null}>
+            		<NavLink to="/contact">Contact</NavLink>
+          		</NavItem>
+          		<NavItem className={pathname === '/blog' ? 'active' : null}>
+            		<NavLink to="/blog">Blog</NavLink>
+          		</NavItem>
+          		<NavItem className={pathname === '/resources' ? 'active' : null}>
+            		<NavLink to="/resources">Resources</NavLink>
+          		</NavItem>
+          		<NavItem className={pathname === '/portfolio' ? 'active' : null}>
+            		<NavLink to="/portfolio">Portfolio</NavLink>
+          		</NavItem>
+        		</NavbarNav>
+        		<NavbarNav right>
+          		<NavItem>
+            		<FormInline waves>
+              		<div className="md-form my-0">
+                		<input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
+              		</div>
+            		</FormInline>
+          		</NavItem>
+            </NavbarNav>
+      		</Collapse>
+    		</Container>
+  		</Navbar>
 				{this.state.collapse && overlay}
-			</div>
+		</div>
 		)			
 	}
 }
 
-export default NavBar
+export default withRouter(NavBar)
