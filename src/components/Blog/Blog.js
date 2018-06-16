@@ -14,7 +14,7 @@ import {
 import NavBar from '../NavBar';
 import FeaturedPostsRow from './FeaturedPostsRow';
 import CustomFooter from '../Footer';
-import './index.css'
+
 
 class Blog extends Component {
   constructor(props) {
@@ -67,29 +67,29 @@ class Blog extends Component {
   <div>  
     <div>
     	<NavBar />
-    	<div id="carousel-wrapper">
-      <Container id="inner-container">
+    	<CarouselWrapper>
+      <MdbContainer>
         <Carousel
           thumbnails
           activeItem={this.state.activeItem}
           next={this.next}
           className="z-depth-1">
           <CarouselInner>
-            <CarouselItem itemId="1">
+            <MdbCarouselItem itemId="1">
               <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(88).jpg" alt="First slide" />
-            </CarouselItem>
-            <CarouselItem itemId="2">
+            </MdbCarouselItem>
+            <MdbCarouselItem itemId="2">
               <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(121).jpg" alt="Second slide" />
-            </CarouselItem>
-            <CarouselItem itemId="3">
+            </MdbCarouselItem>
+            <MdbCarouselItem itemId="3">
               <img className="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(31).jpg" alt="Third slide" />
-            </CarouselItem>
+            </MdbCarouselItem>
           </CarouselInner>
           <CarouselControl direction="prev" role="button" onClick={() => { this.prev(); }} />
           <CarouselControl direction="next" role="button" onClick={() => { this.next(); }} />
         </Carousel>
-      </Container>
-    	</div>
+      </MdbContainer>
+    	</CarouselWrapper>
     </div>
     <FeaturedPostsRow 
       authors={authors}
@@ -106,3 +106,20 @@ class Blog extends Component {
 }
 
 export default Blog;
+
+const CarouselWrapper = glamorous.div({
+  marginTop: `54px`,
+  padding:0,
+  maxHeight: `50vh !important`,
+  minWidth: `100vw`
+})
+
+const MdbContainer = glamorous(Container)({
+  padding:0,
+  margin:0,
+  minWidth: `100vw`
+})
+
+const MdbCarouselItem = glamorous(CarouselItem)({
+  maxHeight: `50vh`
+})

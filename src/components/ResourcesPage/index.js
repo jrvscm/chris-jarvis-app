@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Mask, Row, Col, Fa, Button, View, Container, Card, CardBody, Input, FormInline } from 'mdbreact';
 import NavBar from '../NavBar';
-import './index.css'
 
-class ResourcesPage extends React.Component {
+
+class ResourcesPage extends Component {
   render(){
     return (
-      <div id="classicformpage">
+      <div>
         <NavBar />
         <View>
           <Mask className="d-flex justify-content-center align-items-center gradient">

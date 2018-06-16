@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import glamorous from 'glamorous';
 import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Mask, Row, Col, Fa, Button, View, Container, Card, CardBody, Input, FormInline } from 'mdbreact';
 import { withRouter } from 'react-router-dom';
-import './index.css';
 
 class NavBar extends Component {
   constructor(props) {

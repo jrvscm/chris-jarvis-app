@@ -1,23 +1,43 @@
 import React, { Component } from 'react';
+import glamorous from 'glamorous';
 import { Mask, Row, Col, Fa, Button, View, Container, FormInline } from 'mdbreact';
 import NavBar from '../NavBar';
-import './HomePage.css';
+
+const GlamorousMdbMask = glamorous(Mask)({
+  background: '-moz-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%)',
+  background: '-webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%)',
+  background: '-webkit-gradient(linear, 45deg, from(rgba(42, 27, 161, 0.7)), to(rgba(29, 210, 177, 0.7)))',
+  background: '-o-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%)',
+  background: 'linear-gradient(to 45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%)'
+})
+
+const GlamorousMdbView = glamorous(View)({
+  backgroundImage: `https://mdbootstrap.com/img/Photos/Others/architecture.jpg)`,
+  backgroundRepeat: `no-repeat`,
+  backgroundSize: `cover`,
+  backgroundPosition: `center center`,
+  height: `100vh`
+})
+
+const H6 = glamorous.h6({
+  lineHeight: 1.7
+})
 
 class HomePage extends Component {
   render(){
     return (
-        <div id="apppage">
+        <div>
           <NavBar />
-          <View>
-            <Mask className="d-flex justify-content-center align-items-center gradient">
+          <GlamorousMdbView>
+            <GlamorousMdbMask className="d-flex justify-content-center align-items-center" overlay="indigo-strong">
             <Container>
               <Row>
                 <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
                   <h1 className="h1-responsive font-weight-bold mt-sm-5">Make purchases with our app </h1>
                   <hr className="hr-light"/>
-                  <h6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
+                  <H6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
                   dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
-                  iste.</h6>
+                  iste.</H6>
                   <Button color="white">Download</Button>
                   <Button outline color="white">Learn More</Button>
                 </div>
@@ -26,8 +46,8 @@ class HomePage extends Component {
                 </Col>
                 </Row>
               </Container>
-            </Mask>
-          </View>
+            </GlamorousMdbMask>
+          </GlamorousMdbView>
 
           <Container>
             <Row className="py-5">
@@ -44,3 +64,4 @@ class HomePage extends Component {
 };
 
 export default HomePage;
+

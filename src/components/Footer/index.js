@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import glamorous from 'glamorous';
 import { Col, Container, Row, Footer } from 'mdbreact';
 
 class CustomFooter extends Component {
