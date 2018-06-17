@@ -19,7 +19,7 @@ export default class ReduxInput extends React.Component {
                     label={this.props.labelName}
                     icon={this.props.icon}
                     ref={input => (this.input = input)}
-                    error={this.props.meta.error}
+                    error={this.props.meta.invalid}
                     touched={this.props.meta.touched}
                 />
             </div>
@@ -28,7 +28,7 @@ export default class ReduxInput extends React.Component {
 }
 
 const StyledInput = glamorous(Input)({
+    outline: `none !important`
 }, ({error, touched, warning}) => ({
-    borderBottom: touched && error ? `2px solid red !important` : null,
-    outline: touched && error ? `none` : null
+    borderBottom: touched && error ? `1px solid red !important` : null
 }))

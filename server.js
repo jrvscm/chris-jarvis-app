@@ -41,7 +41,7 @@ app.post('/sendmessage', bodyParser.json(), (req, res) => {
           </head>
           <body>
           <div>
-            <h1>From ${req.body.name}, ${req.body.email}</h1>
+            <h1>From ${req.body.name}, ${req.body.email}, Subscribed: ${req.body.subscribe}</h1>
 
           <div>
           <div>

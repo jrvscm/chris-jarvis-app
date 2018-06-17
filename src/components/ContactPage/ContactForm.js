@@ -14,17 +14,21 @@ import Input from './Input';
 
 class ContactForm extends Component {
   onSubmit(values) {
-   fetch(`/sendmessage`, {
+    console.log(values)
+    const { reset } = this.props;
+    fetch(`/sendmessage`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: values['name'],
-        email: values['email'],
-        message: values['message']
+        name: values.name,
+        email: values.email,
+        message: values.message,
+        subscribe: !values.subscribe ? false : values.subscribe
       })
     })
+    .then(() => reset())
     .catch((ex) => console.log('parsing failed', ex))
   }
 
@@ -43,7 +47,7 @@ class ContactForm extends Component {
               type="text"
               name="name"
               labelName="Your name"
-              validate={[required, nonEmpty, isTrimmed]}
+              validate={[required, nonEmpty]}
               warn={required}
             />
            <Field
@@ -52,7 +56,7 @@ class ContactForm extends Component {
               type="text"
               name="email"
               labelName="Your email"
-              validate={[required, nonEmpty, isTrimmed]}
+              validate={[required, nonEmpty]}
               warn={required}
             />
            <Field
@@ -62,22 +66,23 @@ class ContactForm extends Component {
               rows="3"
               name="message"
               labelName="Your message"
-              validate={[required, nonEmpty, isTrimmed]}
+              validate={[required, nonEmpty]}
               warn={required}
             />                        
             <div className="text-center mt-3 black-text">
               <Button 
                 type="submit" 
                 color="indigo"
-                disabled={this.props.pristine || this.props.submitting}
+                disabled={this.props.invalid}
                 Register
               >
                   Send
                 </Button>
               <hr/>
               <Field
+                logger={console.log(this.props)}
                 component={Input}
-                name="Subscribe"
+                name="subscribe"
                 type="checkbox" 
                 id="checkbox" 
                 labelName="Subscribe me to the newsletter"
