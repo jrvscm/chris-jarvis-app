@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
 import glamorous from 'glamorous';
-import { Mask, Row, Col, Fa, Button, View, Container, FormInline, Card, CardBody, Input } from 'mdbreact';
+import { 
+    Mask, 
+    Row, 
+    Col, 
+    Fa, 
+    Button, 
+    View, 
+    Container, 
+    FormInline, 
+    Card, 
+    CardBody, 
+    Input 
+} from 'mdbreact';
+import { Field, reduxForm, focus } from 'redux-form';
+
 import NavBar from '../NavBar';
+import ContactForm from './ContactForm';
 
 class ContactPage extends Component {
   render(){
@@ -21,20 +36,7 @@ class ContactPage extends Component {
                   <Button outline color="white">Learn More</Button>
                 </div>
                 <Col md="6" xl="5" className="mb-4">
-                  <Card className="dark-grey-text">
-                    <CardBody className="z-depth-2">
-                      <h3 className="dark-grey-text text-center"><strong>Write to us:</strong></h3>
-                      <hr/>
-                      <Input label="Your name" icon="user"/>
-                      <Input label="Your email" icon="envelope"/>
-                      <Input label="Your message" icon="pencil" type="textarea" rows="3"/>
-                      <div className="text-center mt-3 black-text">
-                        <Button color="indigo">Send</Button>
-                        <hr/>
-                        <Input type="checkbox" id="checkbox" label="Subscribe me to the newsletter"/>
-                      </div>
-                    </CardBody>
-                  </Card>
+                  <ContactForm />
                 </Col>
               </Row>
             </Container>
