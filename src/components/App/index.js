@@ -9,7 +9,7 @@ import {
 import HomePage from '../Home';
 import Blog from '../Blog';
 import ContactPage from '../ContactPage';
-import ResourcesPage from '../ResourcesPage'
+import PortfolioPage from '../PortfolioPage';
 import RouteListener from '../RouteListener';
 import withAuthentication from '../session/withAuthentication';
 import * as routes from '../../constants/routes';
@@ -25,7 +25,7 @@ const App = () => (
         <Route exact path={routes.HOME} component={HomePage} />
         <Route exact path={routes.BLOG} component={Blog} />
         <Route exact path={routes.CONTACT} component={ContactPage} />
-        <Route exact path={routes.RESOURCES} component={ResourcesPage} />
+        <Route exact path={routes.PORTFOLIO} component={PortfolioPage} />
       </Switch>
     </div>
   </Router>

@@ -9,3 +9,4 @@ export const BLOG = '/blog';
 export const TEST = '/test';
 export const CONTACT = '/contact';
 export const RESOURCES = '/resources';
+export const PORTFOLIO = '/portfolio';

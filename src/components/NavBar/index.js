@@ -47,9 +47,6 @@ class NavBar extends Component {
           		<NavItem className={pathname === '/blog' ? 'active' : null}>
             		<NavLink to="/blog">Blog</NavLink>
           		</NavItem>
-          		<NavItem className={pathname === '/resources' ? 'active' : null}>
-            		<NavLink to="/resources">Resources</NavLink>
-          		</NavItem>
           		<NavItem className={pathname === '/portfolio' ? 'active' : null}>
             		<NavLink to="/portfolio">Portfolio</NavLink>
           		</NavItem>

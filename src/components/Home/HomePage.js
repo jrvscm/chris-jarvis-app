@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import glamorous from 'glamorous';
 import { Mask, Row, Col, Fa, Button, View, Container, FormInline } from 'mdbreact';
+import Typist from 'react-typist';
+
 import NavBar from '../NavBar';
 
 const GlamorousMdbMask = glamorous(Mask)({
@@ -12,11 +14,12 @@ const GlamorousMdbMask = glamorous(Mask)({
 })
 
 const GlamorousMdbView = glamorous(View)({
-  backgroundImage: `https://mdbootstrap.com/img/Photos/Others/architecture.jpg)`,
+  background: `url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/hands-typing.jpg)`,
   backgroundRepeat: `no-repeat`,
   backgroundSize: `cover`,
   backgroundPosition: `center center`,
-  height: `100vh`
+  height: `100vh`,
+  width: `100vw`
 })
 
 const H6 = glamorous.h6({
@@ -33,7 +36,17 @@ class HomePage extends Component {
             <Container>
               <Row>
                 <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
-                  <h1 className="h1-responsive font-weight-bold mt-sm-5">Make purchases with our app </h1>
+                  <Typist cursor={{show: false}}>
+                      <span className="h1-responsive font-weight-bold mt-sm-5">Hey my name is Chris.</span>
+                      <Typist.Backspace count={21} delay={1000} />
+                      <span className="h1-responsive font-weight-bold mt-sm-5">I like to build things.</span>
+                      <Typist.Backspace count={23} delay={1000}  />
+                      <span className="h1-responsive font-weight-bold mt-sm-5">I build full-stack web applications.</span>
+                      <Typist.Backspace count={36} delay={1000}  />
+                      <span className="h1-responsive font-weight-bold mt-sm-5">I like React/Redux and Firebase</span>                    
+                      <Typist.Backspace count={31} delay={1000}  />
+                      <span className="h1-responsive font-weight-bold mt-sm-5">What can I build for you?</span>                    
+                    </Typist>
                   <hr className="hr-light"/>
                   <H6 className="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
                   dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
