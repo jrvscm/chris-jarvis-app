@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import glamorous from 'glamorous';
 import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Mask, Row, Col, Fa, Button, View, Container, Card, CardBody, Input, FormInline } from 'mdbreact';
 import { withRouter } from 'react-router-dom';
+import './index.css';
 
 class NavBar extends Component {
   constructor(props) {
@@ -70,3 +71,7 @@ class NavBar extends Component {
 }
 
 export default withRouter(NavBar)
+
+const CustomNav = glamorous(NavBar)({
+  transition: `background .5s ease-in-out,padding .5s ease-in-out`
+})
