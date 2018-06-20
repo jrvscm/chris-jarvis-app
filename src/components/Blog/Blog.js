@@ -13,7 +13,7 @@ import {
 
 import NavBar from '../NavBar';
 import FeaturedPostsRow from './FeaturedPostsRow';
-import CustomFooter from '../Footer';
+import CustomFooter from '../CustomFooter';
 
 
 class Blog extends Component {

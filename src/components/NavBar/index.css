@@ -1,13 +1,12 @@
-.navbar {
+#custom-nav .navbar {
   transition: background .5s ease-in-out, padding .5s ease-in-out;
 }
-
 .top-nav-collapse {
-  background: 'primary-color' !important;
+  background: #6534ff !important;
 }
 
 @media (max-width: 768px) {
-.navbar:not(.top-nav-collapse) {
-      background: 'primary-color' !important;
+#custom-nav .navbar:not(.top-nav-collapse) {
+      background: #6534ff !important;
   }
 }

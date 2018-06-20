@@ -71,7 +71,3 @@ class NavBar extends Component {
 }
 
 export default withRouter(NavBar)
-
-const CustomNav = glamorous(NavBar)({
-  transition: `background .5s ease-in-out,padding .5s ease-in-out`
-})
