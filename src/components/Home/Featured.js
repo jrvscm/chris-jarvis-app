@@ -5,10 +5,10 @@ const Featured = () =>  {
   const newsStyle={borderBottom: '1px solid #e0e0e0', marginBottom: '1.5rem'}
   return(
     <Container style={{maxWidth: '80%', marginTop: 0, paddingTop: 0}}>
-      <h2 style={{padding: 50}} className="h1-responsive font-weight-bold text-center">Section title</h2>
-      <p className="dark-grey-text mx-auto mb-5 w-75 text-center">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit id laborum.</p>
-      <Row>
-        <Col md="12" lg="6">
+      <h2 style={{padding: 50}} className="h1-responsive font-weight-bold text-center wow slideInLeft">Section title</h2>
+      <p className="dark-grey-text mx-auto mb-5 w-75 text-center wow slideInLeft">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit id laborum.</p>
+      <Row className="wow slideInRight">
+        <Col md="12" lg="6 wow slideInRight">
           <div className="mb-4">
             <View hover rounded className="z-depth-1-half mb-4">
               <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Slides/1.jpg" alt="Sample image"/>
