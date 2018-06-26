@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import glamorous from 'glamorous';
-import { Mask, Row, Col, Fa, Button, View, Container, FormInline, Card, CardImage, CardBody, CardTitle, CardText } from 'mdbreact';
+import { Container, Card } from 'mdbreact';
 import Typist from 'react-typist';
-import Beard from '../../images/beard.png';
 import Brackets from '../../images/brackets.png';
 import Css3 from '../../images/css3.png';
 import Html from '../../images/html.png';
@@ -31,23 +30,18 @@ const GlamorousMdbCard = glamorous(Card)({
   margin: 15
 })
 
-class HomePage extends Component {
-  render(){
-    return (
-        <div>
-          <NavBar />
-          <Hero />
-          <GlamorousMdbContainer style={{backgroundColor: "#fccdd3", color: "#fccdd3"}}>
-            <RecentProjects />
-          </GlamorousMdbContainer>
-          <GlamorousMdbContainer style={{backgroundColor: "#bbc4ef"}}>
-            <Featured />
-          </GlamorousMdbContainer>
-          <CustomFooter />                  
-        </div>
-    );
-  }
-};
+const HomePage = ({hidden, setHiddenState}) => (
+  <div>
+    <Hero hidden={hidden} setHiddenState={setHiddenState} />
+    <GlamorousMdbContainer style={{backgroundColor: "#fccdd3", color: "#4f4f4f"}}>
+      <RecentProjects />
+    </GlamorousMdbContainer>
+    <GlamorousMdbContainer style={{backgroundColor: "#bbc4ef", color: "#4f4f4f"}}>
+      <Featured />
+    </GlamorousMdbContainer>
+    <CustomFooter />                  
+  </div>
+)
 
 export default HomePage;
 

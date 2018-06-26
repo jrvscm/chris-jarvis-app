@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import glamorous from 'glamorous';
 import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Mask, Row, Col, Fa, Button, View, Container, Card, CardBody, Input, FormInline } from 'mdbreact';
 import { withRouter } from 'react-router-dom';
+import Beard from '../../images/beard.png';
 import './index.css';
 
 class NavBar extends Component {
@@ -34,7 +35,7 @@ class NavBar extends Component {
   		<Navbar dark expand="md" fixed="top" scrolling>
     		<Container>
      			<NavbarBrand>
-        			<strong className="white-text">MDB</strong>
+        			<Logo src={Beard} />
       		</NavbarBrand>
       		<NavbarToggler onClick = { this.onClick } />
       		<Collapse isOpen = {this.state.collapse} navbar>
@@ -71,3 +72,8 @@ class NavBar extends Component {
 }
 
 export default withRouter(NavBar)
+
+const Logo = glamorous.img({
+  height: `auto`,
+  width: 40
+})
