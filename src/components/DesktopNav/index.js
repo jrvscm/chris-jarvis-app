@@ -33,7 +33,6 @@ class DesktopNav extends Component {
 	}
 }
 
-
 export default DesktopNav;
 
 const Container = glamorous.div({

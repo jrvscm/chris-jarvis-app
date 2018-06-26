@@ -1,8 +1,9 @@
-import { UPDATE_DIMENSIONS, SET_HIDDEN_STATE } from '../actions';
+import { UPDATE_DIMENSIONS, SET_HIDDEN_STATE, SET_FIRST_LOAD } from '../actions';
 
 const INITIAL_STATE = {
   hidden: true,
-  dimensions: null
+  dimensions: null,
+  firstLoad: true
 };
 
 function navbar(state = INITIAL_STATE, action) {
@@ -10,7 +11,7 @@ function navbar(state = INITIAL_STATE, action) {
     case UPDATE_DIMENSIONS: 
       return { ...state, dimensions: action.dimensions };
     case SET_HIDDEN_STATE:
-    	return { ...state, hidden: action.status}
+    	return { ...state, hidden: action.status };
     default:
       return state;
   }

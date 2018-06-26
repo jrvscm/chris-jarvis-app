@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import glamorous from 'glamorous';
 import ScaleText from "react-scale-text";
 import { Icon } from 'react-icons-kit';
+import { arrowRight } from 'react-icons-kit/feather/arrowRight';
 import { facebookSquare } from 'react-icons-kit/fa/facebookSquare';
 import { twitterSquare } from 'react-icons-kit/fa/twitterSquare';
 import { linkedinSquare } from 'react-icons-kit/fa/linkedinSquare';
@@ -11,8 +12,10 @@ import { navicon } from 'react-icons-kit/fa/navicon'
 
 
 import Beard from '../../images/beard.png';
+import BeardRed from '../../images/beard-red.png';
 import HTML from '../../images/html.png';
 import DesktopNav from '../DesktopNav';
+
 const mediaQueries = {
     med: '@media only screen and (max-width: 1200px)',
     small: '@media only screen and (max-width: 900px)',
@@ -104,6 +107,7 @@ const H2 = glamorous.h2({
 })
 
 const H3 = glamorous.h3({
+  position: `relative`,
   padding:0,
   marginLeft: 0,
   marginTop:0,
@@ -111,6 +115,7 @@ const H3 = glamorous.h3({
   marginRight: `auto`,
   transform: `all .35s ease`,
   cursor: `pointer`,
+  zIndex: 100,
   '&:hover': {
     color: `#F64C72`
   },
@@ -119,12 +124,16 @@ const H3 = glamorous.h3({
   }
 })
 
-const Logo = glamorous.img({
+const Logo = glamorous.div({
+  height: 48,
   width: 48,
   transform: `all .35s ease`,
   cursor: `pointer`,
+  background: `url(${Beard}) center center no-repeat`,
+  backgroundSize: `contain`,
   '&:hover': {
-    color: `#F64C72`
+    background: `url(${BeardRed}) center center no-repeat`,
+    backgroundSize: `contain`
   }
 })
 
@@ -140,11 +149,32 @@ const GlamorousIcon = glamorous(Icon)({
   }
 })
 
-const Hero = ({hidden, setHiddenState}) => (
+const ArrowIcon = glamorous(Icon)({
+  transform: `all .35s ease !important`,
+  cursor: `pointer`,
+  color: `#F64C72`,
+  marginLeft: 15
+})
+
+class Hero extends Component { 
+  constructor(props) {
+    super(props);
+  
+    this.state={
+      arrowClasses: 'invisible'
+    }
+  }
+
+  render() {
+  
+  const { hidden, setHiddenState } = this.props;
+  const { arrowClasses } = this.state;
+
+  return ( 
   <Container>
     <DesktopNav hidden={hidden} setHiddenState={setHiddenState} />
     <TopRow>
-      <Logo src={Beard} />
+      <Logo />
       <GlamorousIcon 
         icon={navicon} 
         size={'32px'}
@@ -155,18 +185,61 @@ const Hero = ({hidden, setHiddenState}) => (
       <HeaderContainer>
         <H1>WELCOME TO</H1>
         <H1>CHRISJARVIS.ONLINE</H1>
-        <H2>I BUILD THINGS FOR THE WEB</H2>
+        <H2>
+          <Highlighter>I </Highlighter> 
+          <Highlighter>B</Highlighter>
+          <Highlighter>U</Highlighter>
+          <Highlighter>I</Highlighter>
+          <Highlighter>L</Highlighter>
+          <Highlighter>D </Highlighter>
+          <Highlighter>T</Highlighter>
+          <Highlighter>H</Highlighter>
+          <Highlighter>I</Highlighter>
+          <Highlighter>N</Highlighter>
+          <Highlighter>G</Highlighter>
+          <Highlighter>S </Highlighter>
+          <Highlighter>F</Highlighter>
+          <Highlighter>O</Highlighter>
+          <Highlighter>R </Highlighter>
+          <Highlighter>T</Highlighter>
+          <Highlighter>H</Highlighter>
+          <Highlighter>E </Highlighter>
+          <Highlighter>W</Highlighter>
+          <Highlighter>E</Highlighter>
+          <Highlighter>B</Highlighter>
+        </H2>
       </HeaderContainer>      
     </Row>
     <BottomRow>
-      <H3>CONTACT</H3>
+      <Row style={{marginRight: `auto`}}>
+        <H3 
+          onMouseEnter={() => this.setState({arrowClasses: 'animated fadeInLeft'}) }
+          onMouseOut={() => this.setState({arrowClasses: 'animated fadeOutLeft white-text'})}
+        >
+          CONTACT 
+        </H3>
+        <ArrowIcon
+          className={arrowClasses} 
+          icon={arrowRight} 
+          size={'32px'}  
+        />
+      </Row>
       <GlamorousIcon icon={instagram} size={'32px'} />
       <GlamorousIcon icon={facebookSquare} size={'32px'} />
       <GlamorousIcon icon={githubSquare} size={'32px'} />
       <GlamorousIcon icon={linkedinSquare} size={'32px'} />
     </BottomRow>
   </Container>
-)
+    )
+  }
+}
+
 
 export default Hero;
 
+const Highlighter = glamorous.span({
+  transform: `all .35s ease`,
+  '&:hover': {
+    color: `#F64C72`
+  }
+})
