@@ -14,14 +14,14 @@ import Featured from './Featured';
 import Hero from './Hero';
 
 const GlamorousMdbContainer = glamorous(Container)({
-  minHeight: `100vh`,
-  minWidth: `100vw`,
+  minHeight: `100%`,
+  minWidth: `100%`,
   margin:0,
   padding:0,
   backgroundRepeat: `no-repeat`,
   backgroundSize: `cover`,
   backgroundPosition: `center center`,
-  color: `white`
+  color: `#707070`
 })
 
 const GlamorousMdbCard = glamorous(Card)({
@@ -33,10 +33,10 @@ const GlamorousMdbCard = glamorous(Card)({
 const HomePage = ({hidden, setHiddenState}) => (
   <div>
     <Hero hidden={hidden} setHiddenState={setHiddenState} />
-    <GlamorousMdbContainer style={{backgroundColor: "#fccdd3", color: "#4f4f4f"}}>
+    <GlamorousMdbContainer style={{backgroundColor:"#E7E3D4"}}>
       <RecentProjects />
     </GlamorousMdbContainer>
-    <GlamorousMdbContainer style={{backgroundColor: "#bbc4ef", color: "#4f4f4f"}}>
+    <GlamorousMdbContainer style={{backgroundColor:"#C4DBF6"}}>
       <Featured />
     </GlamorousMdbContainer>
     <CustomFooter />                  

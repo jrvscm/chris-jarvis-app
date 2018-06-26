@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import glamorous from 'glamorous';
-import { Textfit } from 'react-textfit';
+import ScaleText from "react-scale-text";
 import { Icon } from 'react-icons-kit';
 import { facebookSquare } from 'react-icons-kit/fa/facebookSquare';
 import { twitterSquare } from 'react-icons-kit/fa/twitterSquare';
@@ -13,7 +13,11 @@ import { navicon } from 'react-icons-kit/fa/navicon'
 import Beard from '../../images/beard.png';
 import HTML from '../../images/html.png';
 import DesktopNav from '../DesktopNav';
-
+const mediaQueries = {
+    med: '@media only screen and (max-width: 1200px)',
+    small: '@media only screen and (max-width: 900px)',
+    phone: '@media only screen and (max-width: 600px)',
+}
 
 const Row = glamorous.div({
   display: `flex`,
@@ -72,21 +76,46 @@ const H1 = glamorous.h1({
     MozBoxShadow: `0px 180px 100px 0px rgba(0,0,0,0.2)`,
     BoxShadow: `0px 180px 100px 0px rgba(0,0,0,0.2)`,
     borderRadius: `50%`
+  },
+  [mediaQueries.med]:{
+    fontSize: 80
+  },
+  [mediaQueries.small]:{
+    fontSize: 60
+  },
+  [mediaQueries.phone]: {
+    fontSize: 35,
+    letterSpacing: -2,
   }
 })
 
 const H2 = glamorous.h2({
   fontSize: 60,
-  color: `rgba(255, 255, 255, .3)`
+  color: `rgba(255, 255, 255, .3)`,
+  [mediaQueries.med]:{
+    fontSize: 50
+  },  
+  [mediaQueries.small]:{
+    fontSize: 40
+  },
+  [mediaQueries.phone]: {
+    fontSize: 20
+  }
 })
 
 const H3 = glamorous.h3({
   padding:0,
+  marginLeft: 0,
+  marginTop:0,
+  marginBottom:0,
   marginRight: `auto`,
   transform: `all .35s ease`,
   cursor: `pointer`,
   '&:hover': {
-    color: `rgba(0,0,0,.5)`
+    color: `#F64C72`
+  },
+  [mediaQueries.phone]:{
+    fontSize: 25
   }
 })
 
@@ -95,7 +124,7 @@ const Logo = glamorous.img({
   transform: `all .35s ease`,
   cursor: `pointer`,
   '&:hover': {
-    color: `rgba(0,0,0,.5)`
+    color: `#F64C72`
   }
 })
 
@@ -107,7 +136,7 @@ const GlamorousIcon = glamorous(Icon)({
   transform: `all .35s ease`,
   cursor: `pointer`,
   '&:hover': {
-    color: `rgba(0,0,0,.5)`
+    color: `#F64C72`
   }
 })
 
