@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import glamorous from 'glamorous';
-import ScaleText from "react-scale-text";
+import { withRouter } from 'react-router-dom';
 import { Icon } from 'react-icons-kit';
 import { arrowRight } from 'react-icons-kit/feather/arrowRight';
 import { facebookSquare } from 'react-icons-kit/fa/facebookSquare';
@@ -156,6 +156,19 @@ const ArrowIcon = glamorous(Icon)({
   marginLeft: 15
 })
 
+
+const Highlighter = glamorous.span({
+  transform: `all .35s ease`,
+  '&:hover': {
+    color: `#F64C72`
+  }
+})
+
+const A = glamorous.a({
+  textDecoration: `none`,
+  color: `white`
+})
+
 class Hero extends Component { 
   constructor(props) {
     super(props);
@@ -167,7 +180,7 @@ class Hero extends Component {
 
   render() {
   
-  const { hidden, setHiddenState } = this.props;
+  const { hidden, setHiddenState, history } = this.props;
   const { arrowClasses } = this.state;
 
   return ( 
@@ -215,6 +228,7 @@ class Hero extends Component {
         <H3 
           onMouseEnter={() => this.setState({arrowClasses: 'animated fadeInLeft'}) }
           onMouseOut={() => this.setState({arrowClasses: 'animated fadeOutLeft white-text'})}
+          onClick={() => history.push('/contact')}
         >
           CONTACT 
         </H3>
@@ -224,10 +238,10 @@ class Hero extends Component {
           size={'32px'}  
         />
       </Row>
-      <GlamorousIcon icon={instagram} size={'32px'} />
-      <GlamorousIcon icon={facebookSquare} size={'32px'} />
-      <GlamorousIcon icon={githubSquare} size={'32px'} />
-      <GlamorousIcon icon={linkedinSquare} size={'32px'} />
+      <A href="https://www.instagram.com/j_a_r_v_1_s/" target="_blank"><GlamorousIcon icon={instagram} size={'32px'} /></A>
+      <A href="https://www.facebook.com/chris.jarvis.33" target="_blank"><GlamorousIcon icon={facebookSquare} size={'32px'} /></A>
+      <A href="https://github.com/jrvscm" target="_blank"><GlamorousIcon icon={githubSquare} size={'32px'} /></A>
+      <A href="https://www.linkedin.com/in/chris-jarvis-dev/" target="_blank"><GlamorousIcon icon={linkedinSquare} size={'32px'} /></A>
     </BottomRow>
   </Container>
     )
@@ -235,11 +249,4 @@ class Hero extends Component {
 }
 
 
-export default Hero;
-
-const Highlighter = glamorous.span({
-  transform: `all .35s ease`,
-  '&:hover': {
-    color: `#F64C72`
-  }
-})
+export default withRouter(Hero);

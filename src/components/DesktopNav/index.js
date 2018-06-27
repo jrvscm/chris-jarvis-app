@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import glamorous from 'glamorous';
+import { withRouter } from 'react-router-dom';
 
 class DesktopNav extends Component {
 	constructor(props) {
@@ -17,23 +18,24 @@ class DesktopNav extends Component {
 	}
 
 	render() {
-		const { hidden } = this.props;
+		const { hidden, history } = this.props;
 		const { firstLoad } = this.state;
 		const classNames = hidden === true ? 'animated slideOutRight' : 'animated slideInRight';
 		
 		return(
 		<Container hide={firstLoad} className={classNames}>
 			<NavList>
-				<NavItem><H3>Blog</H3></NavItem>		
-				<NavItem><H3>About</H3></NavItem>
-				<NavItem><H3>Contact</H3></NavItem>
+				<NavItem onClick={() => history.push('/blog')}><H3>Blog</H3></NavItem>		
+				<NavItem onClick={() => history.push('/about')}><H3>About</H3></NavItem>
+				<NavItem onClick={() => history.push('/contact')}><H3>Contact</H3></NavItem>
+				<NavItem onClick={() => history.push('/resources')}><H3>Resources</H3></NavItem>
 			</NavList>
 		</Container>
 		)	
 	}
 }
 
-export default DesktopNav;
+export default withRouter(DesktopNav);
 
 const Container = glamorous.div({
 	position: `absolute`,
@@ -65,10 +67,15 @@ const NavList = glamorous.ul({
 
 const NavItem = glamorous.li({
 	textAlign: `center`,
-	listStyleType: `none`
+	listStyleType: `none`,
+  transform: `all .35s ease`,
+  cursor: `pointer`,
+	color: `rgba(255, 255, 255, .3)`,  
+  '&:hover': {
+    color: `#F64C72`
+  }	
 })
 
 const H3 = glamorous.h3({
-	fontSize: 32,
-	color: `rgba(255, 255, 255, .3)`
+	fontSize: 32
 })
