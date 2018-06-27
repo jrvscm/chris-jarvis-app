@@ -12,16 +12,21 @@ import CustomFooter from '../CustomFooter';
 import RecentProjects from './RecentProjects';
 import Featured from './Featured';
 import Hero from './Hero';
+import ContactSection from '../ContactSection';
 
 const GlamorousMdbContainer = glamorous(Container)({
-  minHeight: `100%`,
+  minHeight: `100vh`,
   minWidth: `100%`,
   margin:0,
   padding:0,
   backgroundRepeat: `no-repeat`,
   backgroundSize: `cover`,
   backgroundPosition: `center center`,
-  color: `#707070`
+  color: `#707070`,
+  display: `flex`,
+  flexDirection: `columm`,
+  alignItems: `center`,
+  justifyContent: `center`
 })
 
 const GlamorousMdbCard = glamorous(Card)({
@@ -30,11 +35,18 @@ const GlamorousMdbCard = glamorous(Card)({
   margin: 15
 })
 
+const Wrapper = glamorous.div({
+  display: `flex`
+})
+
 const HomePage = ({hidden, setHiddenState}) => (
   <div>
     <Hero hidden={hidden} setHiddenState={setHiddenState} />
     <GlamorousMdbContainer style={{backgroundColor:"#E7E3D4"}}>
       <RecentProjects />
+    </GlamorousMdbContainer>
+    <GlamorousMdbContainer style={{backgroundColor:"#C4DBF6"}}>
+        <ContactSection />
     </GlamorousMdbContainer>
     <CustomFooter />                  
   </div>

@@ -39,7 +39,7 @@ class ContactForm extends Component {
         onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
         <Card className="dark-grey-text">
           <CardBody className="z-depth-2">
-            <h3 className="dark-grey-text text-center"><strong>Write to us:</strong></h3>
+            <h3 className="dark-grey-text text-center"><strong>Write to me:</strong></h3>
             <hr/>
             <Field
               component={Input} 
