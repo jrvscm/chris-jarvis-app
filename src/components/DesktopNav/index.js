@@ -5,6 +5,10 @@ import { Badge } from 'mdbreact';
 import * as Scroll from 'react-scroll';
 import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 
+const MobileDetect = require('mobile-detect');
+const md = new MobileDetect(window.navigator.userAgent);
+const isMobile = md.mobile();
+
 class DesktopNav extends Component {
 	constructor(props) {
 		super(props);
@@ -40,15 +44,16 @@ class DesktopNav extends Component {
 
 
 	render() {
-		const { hidden, history } = this.props;
+			
+		const { hidden, setHiddenState, history } = this.props;
 		const { firstLoad } = this.state;
 		const classNames = hidden === true ? 'animated slideOutRight' : 'animated slideInRight'
 		return(
-		<Container hidden={firstLoad} className={classNames}>
+		<Container isMobile={isMobile} hidden={firstLoad} className={classNames}>
 			<NavList>
 				<NavItem><H3>About </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>
 				<NavItem><H3>Blog </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>		
-				<Link to="contact-anchor" spy={true} smooth={true} duration={500}>
+				<Link onClick={()=> setHiddenState(true)} to="contact-anchor" spy={true} smooth={true} duration={500}>
 					<NavItem><H3>Contact</H3></NavItem>
 				</Link>			
 				<NavItem><H3>Resources </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>				
@@ -68,12 +73,11 @@ const GlamorousBadge = glamorous(Badge)({
 
 const Container = glamorous.div({
 	position: `fixed`,
-	right: `0`,
+	right: 0,
 	top: 0,
 	bottom: 0,
 	padding: 25,
 	zIndex: 150,
-	width: `30%`,
 	maxWidth: `350px`,
 	backgroundColor: `white`,
 	display: `flex`,
@@ -81,7 +85,9 @@ const Container = glamorous.div({
 	alignItems: `center`,
 	justifyContent: `center`,
 	backgroundImage: `linear-gradient(135deg,#03337f 0%,#1567bd 100%)`,
-})
+}, ({isMobile}) => ({
+	minWidth: isMobile != null ? `100vw` : `30%`
+}))
 
 const NavList = glamorous.ul({
 	height: `100%`,
