@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import glamorous from 'glamorous';
 import { withRouter } from 'react-router-dom';
+import { Badge } from 'mdbreact';
+import * as Scroll from 'react-scroll';
+import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 
 class DesktopNav extends Component {
 	constructor(props) {
@@ -17,18 +20,38 @@ class DesktopNav extends Component {
 		})
 	}
 
+	componentDidMount() {
+    Events.scrollEvent.register('begin', function(to, element) {
+      console.log("begin", arguments);
+    });
+
+    Events.scrollEvent.register('end', function(to, element) {
+      console.log("end", arguments);
+    });
+
+    scrollSpy.update();
+
+  }
+
+  componentWillUnmount() {
+    Events.scrollEvent.remove('begin');
+    Events.scrollEvent.remove('end');
+  }
+
+
 	render() {
 		const { hidden, history } = this.props;
 		const { firstLoad } = this.state;
-		const classNames = hidden === true ? 'animated slideOutRight' : 'animated slideInRight';
-		
+		const classNames = hidden === true ? 'animated slideOutRight' : 'animated slideInRight'
 		return(
-		<Container hide={firstLoad} className={classNames}>
+		<Container hidden={firstLoad} className={classNames}>
 			<NavList>
-				<NavItem onClick={() => history.push('/blog')}><H3>Blog</H3></NavItem>		
-				<NavItem onClick={() => history.push('/about')}><H3>About</H3></NavItem>
-				<NavItem onClick={() => history.push('/contact')}><H3>Contact</H3></NavItem>
-				<NavItem onClick={() => history.push('/resources')}><H3>Resources</H3></NavItem>
+				<NavItem><H3>About </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>
+				<NavItem><H3>Blog </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>		
+				<Link to="contact-anchor" spy={true} smooth={true} duration={500}>
+					<NavItem><H3>Contact</H3></NavItem>
+				</Link>			
+				<NavItem><H3>Resources </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>				
 			</NavList>
 		</Container>
 		)	
@@ -37,11 +60,19 @@ class DesktopNav extends Component {
 
 export default withRouter(DesktopNav);
 
+const GlamorousBadge = glamorous(Badge)({
+	fontSize: 8,
+	marginLeft: 10,
+	marginBottom: 15
+})
+
 const Container = glamorous.div({
-	position: `absolute`,
-	right: 0,
+	position: `fixed`,
+	right: `0`,
 	top: 0,
 	bottom: 0,
+	padding: 25,
+	zIndex: 150,
 	width: `30%`,
 	maxWidth: `350px`,
 	backgroundColor: `white`,
@@ -50,9 +81,7 @@ const Container = glamorous.div({
 	alignItems: `center`,
 	justifyContent: `center`,
 	backgroundImage: `linear-gradient(135deg,#03337f 0%,#1567bd 100%)`,
-}, ({hide}) => ({
-	display: hide === true ? `none` : null
-}))
+})
 
 const NavList = glamorous.ul({
 	height: `100%`,
@@ -60,16 +89,20 @@ const NavList = glamorous.ul({
 	display: `flex`,
 	flexDirection: `column`,
 	justifyContent: `center`,
-	alignItems: `center`,
+	alignItems: `flex-start`,
 	margin: 0,
 	padding:0
 })
 
 const NavItem = glamorous.li({
-	textAlign: `center`,
+	display: `flex`,
+	flexDirection: `row`,
+	justifyContent: `flex-start`,
+	alignItems: `center`,
 	listStyleType: `none`,
   transform: `all .35s ease`,
   cursor: `pointer`,
+  width: `100%`,
 	color: `rgba(255, 255, 255, .3)`,  
   '&:hover': {
     color: `#F64C72`

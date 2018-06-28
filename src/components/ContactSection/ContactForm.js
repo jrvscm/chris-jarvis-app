@@ -14,7 +14,6 @@ import Input from './Input';
 
 class ContactForm extends Component {
   onSubmit(values) {
-    console.log(values)
     const { reset } = this.props;
     fetch(`/sendmessage`, {
       method: 'POST',

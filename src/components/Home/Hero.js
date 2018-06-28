@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import glamorous from 'glamorous';
 import { withRouter } from 'react-router-dom';
+import * as Scroll from 'react-scroll';
+import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import { Icon } from 'react-icons-kit';
 import { arrowRight } from 'react-icons-kit/feather/arrowRight';
 import { facebookSquare } from 'react-icons-kit/fa/facebookSquare';
@@ -178,6 +180,26 @@ class Hero extends Component {
     }
   }
 
+
+ componentDidMount() {
+
+    Events.scrollEvent.register('begin', function(to, element) {
+      console.log("begin", arguments);
+    });
+
+    Events.scrollEvent.register('end', function(to, element) {
+      console.log("end", arguments);
+    });
+
+    scrollSpy.update();
+
+  }
+
+  componentWillUnmount() {
+    Events.scrollEvent.remove('begin');
+    Events.scrollEvent.remove('end');
+  }
+
   render() {
   
   const { hidden, setHiddenState, history } = this.props;
@@ -188,7 +210,8 @@ class Hero extends Component {
     <DesktopNav hidden={hidden} setHiddenState={setHiddenState} />
     <TopRow>
       <Logo />
-      <GlamorousIcon 
+      <GlamorousIcon
+        style={{position: `fixed`, top: 25, right: 25, zIndex: 200}} 
         icon={navicon} 
         size={'32px'}
         onClick={() => {hidden === true ? setHiddenState(false) : setHiddenState(true)} } 
@@ -225,13 +248,14 @@ class Hero extends Component {
     </Row>
     <BottomRow>
       <Row style={{marginRight: `auto`}}>
-        <H3 
-          onMouseEnter={() => this.setState({arrowClasses: 'animated fadeInLeft'}) }
-          onMouseOut={() => this.setState({arrowClasses: 'animated fadeOutLeft white-text'})}
-          onClick={() => history.push('/contact')}
-        >
-          CONTACT 
-        </H3>
+        <Link to="contact-anchor" spy={true} smooth={true} duration={500}>
+          <H3 
+            onMouseEnter={() => this.setState({arrowClasses: 'animated fadeInLeft'}) }
+            onMouseOut={() => this.setState({arrowClasses: 'animated fadeOutLeft white-text'})}
+          >
+            CONTACT 
+          </H3>
+        </Link>
         <ArrowIcon
           className={arrowClasses} 
           icon={arrowRight} 

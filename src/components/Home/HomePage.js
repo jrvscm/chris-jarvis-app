@@ -45,7 +45,7 @@ const HomePage = ({hidden, setHiddenState}) => (
     <GlamorousMdbContainer style={{backgroundColor:"#E7E3D4"}}>
       <RecentProjects />
     </GlamorousMdbContainer>
-    <GlamorousMdbContainer style={{backgroundColor:"#C4DBF6"}}>
+    <GlamorousMdbContainer id="contact-anchor" style={{backgroundColor:"#C4DBF6"}}>
         <ContactSection />
     </GlamorousMdbContainer>
     <CustomFooter />                  

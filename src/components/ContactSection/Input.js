@@ -28,7 +28,7 @@ export default class ReduxInput extends React.Component {
 }
 
 const StyledInput = glamorous(Input)({
-    outline: `none !important`
 }, ({error, touched, warning}) => ({
-    borderBottom: touched && error ? `1px solid red !important` : null
+    borderBottom: touched && error ? `1px solid red !important` : null,
+    boxShadow: touched && error ? `0 1px 0 0 red !important` : `green`
 }))
