@@ -2,6 +2,11 @@ import React from 'react';
 import glamorous from 'glamorous';
 import { Col, Container, Row, Footer } from 'mdbreact';
 
+const I = glamorous.i({
+    marginRight: 15,
+    marginLeft: 15
+})
+
 class CustomFooter extends React.Component {
     render(){
         return(
@@ -13,10 +18,10 @@ class CustomFooter extends React.Component {
                                 <h6 className="mb-0 white-text">Let's get social!</h6>
                             </Col>
                             <Col md="6" lg="7" className="text-center text-md-right">
-                                <a href="https://www.facebook.com/chris.jarvis.33" target="_blank" className="fb-ic ml-0"><i className="fa fa-facebook white-text mr-lg-4"> </i></a>
-                                <a href="https://github.com/jrvscm" target="_blank" className="github-ic"><i className="fa fa-github white-text mr-lg-4"> </i></a>
-                                <a href="https://www.linkedin.com/in/chris-jarvis-dev/" target="_blank" className="li-ic"><i className="fa fa-linkedin white-text mr-lg-4"> </i></a>
-                                <a href="https://www.instagram.com/j_a_r_v_1_s/" target="_blank" className="ins-ic"><i className="fa fa-instagram white-text mr-lg-4"> </i></a>
+                                <a href="https://www.facebook.com/chris.jarvis.33" target="_blank" className="fb-ic ml-0"><I className="fa fa-facebook white-text mr-lg-4"> </I></a>
+                                <a href="https://github.com/jrvscm" target="_blank" className="github-ic"><I className="fa fa-github white-text mr-lg-4"> </I></a>
+                                <a href="https://www.linkedin.com/in/chris-jarvis-dev/" target="_blank" className="li-ic"><I className="fa fa-linkedin white-text mr-lg-4"> </I></a>
+                                <a href="https://www.instagram.com/j_a_r_v_1_s/" target="_blank" className="ins-ic"><I className="fa fa-instagram white-text mr-lg-4"> </I></a>
                             </Col>
                         </Row>
                     </Container>

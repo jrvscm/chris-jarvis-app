@@ -46,7 +46,12 @@ class DesktopNav extends Component {
 	render() {
 		const { hidden, setHiddenState, history } = this.props;
 		const { firstLoad } = this.state;
-		const classNames = hidden === true ? 'animated slideOutRight' : 'animated slideInRight'
+		let classNames = hidden === true ? 'animated slideOutRight' : 'animated slideInRight';
+
+		if(isMobile !== null) {
+			classNames = hidden === true ? 'animated slideOutUp' : 'animated slideInDown';
+		}
+
 		return(
 		<Container isMobile={isMobile} hidden={firstLoad} className={classNames}>
 			<NavList>
@@ -74,7 +79,6 @@ const Container = glamorous.div({
 	position: `fixed`,
 	right: 0,
 	top: 0,
-	bottom: 0,
 	padding: 25,
 	zIndex: 150,
 	maxWidth: `350px`,
@@ -85,7 +89,8 @@ const Container = glamorous.div({
 	justifyContent: `center`,
 	backgroundImage: `linear-gradient(135deg,#03337f 0%,#1567bd 100%)`,
 }, ({isMobile}) => ({
-	minWidth: isMobile != null ? `100vw` : `auto`
+	minWidth: isMobile != null ? `100vw` : `auto`,
+	bottom: isMobile != null ? `auto` : 0
 }))
 
 const NavList = glamorous.ul({
@@ -111,7 +116,7 @@ const NavItem = glamorous.li({
 	color: `rgba(255, 255, 255, .3)`,  
   '&:hover': {
     color: `#F64C72`
-  }	
+  },
 })
 
 const H3 = glamorous.h3({
