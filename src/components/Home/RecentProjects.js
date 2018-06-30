@@ -9,7 +9,7 @@ class RecentProjects extends Component {
       <Container>
         <section className="text-center" style={{paddingTop: 100, paddingBottom: 100}}>
           <h2 className="h1-responsive font-weight-bold wow slideInLeft">Recent Work</h2>
-          <p className="grey-text w-responsive mx-auto mb-5 wow slideInRight">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit est laborum.</p>
+          <p className="grey-text w-responsive mx-auto mb-5 wow slideInRight">These are some examples of my most recent projects. Feel free to check them out on Github, and from there you can access all the demos. Thanks for looking!</p>
           <Row className="d-flex justify-content-center">
             <Col md="6" xl="5" className="mb-4  wow slideInLeft">
               <View className="overlay rounded z-depth-2" waves>

@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 import * as Scroll from 'react-scroll';
 import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import { Icon } from 'react-icons-kit';
-import { arrowRight } from 'react-icons-kit/feather/arrowRight';
 import { facebookSquare } from 'react-icons-kit/fa/facebookSquare';
 import { twitterSquare } from 'react-icons-kit/fa/twitterSquare';
 import { linkedinSquare } from 'react-icons-kit/fa/linkedinSquare';
@@ -17,6 +16,11 @@ import Beard from '../../images/beard.png';
 import BeardRed from '../../images/beard-red.png';
 import HTML from '../../images/html.png';
 import DesktopNav from '../DesktopNav';
+import ContactButton from './ContactButton';
+
+const MobileDetect = require('mobile-detect');
+const md = new MobileDetect(window.navigator.userAgent);
+const isMobile = md.mobile();
 
 const mediaQueries = {
     med: '@media only screen and (max-width: 1200px)',
@@ -108,24 +112,6 @@ const H2 = glamorous.h2({
   }
 })
 
-const H3 = glamorous.h3({
-  position: `relative`,
-  padding:0,
-  marginLeft: 0,
-  marginTop:0,
-  marginBottom:0,
-  marginRight: `auto`,
-  transform: `all .35s ease`,
-  cursor: `pointer`,
-  zIndex: 100,
-  '&:hover': {
-    color: `#F64C72`
-  },
-  [mediaQueries.phone]:{
-    fontSize: 25
-  }
-})
-
 const Logo = glamorous.div({
   height: 48,
   width: 48,
@@ -151,14 +137,6 @@ const GlamorousIcon = glamorous(Icon)({
   }
 })
 
-const ArrowIcon = glamorous(Icon)({
-  transform: `all .35s ease !important`,
-  cursor: `pointer`,
-  color: `#F64C72`,
-  marginLeft: 15
-})
-
-
 const Highlighter = glamorous.span({
   transform: `all .35s ease`,
   '&:hover': {
@@ -172,16 +150,7 @@ const A = glamorous.a({
 })
 
 class Hero extends Component { 
-  constructor(props) {
-    super(props);
-  
-    this.state={
-      arrowClasses: 'invisible'
-    }
-  }
-
-
- componentDidMount() {
+  componentDidMount() {
 
     Events.scrollEvent.register('begin', function(to, element) {
       console.log("begin", arguments);
@@ -201,9 +170,8 @@ class Hero extends Component {
   }
 
   render() {
-  
+
   const { hidden, setHiddenState, history } = this.props;
-  const { arrowClasses } = this.state;
 
   return ( 
   <Container>
@@ -248,19 +216,7 @@ class Hero extends Component {
     </Row>
     <BottomRow>
       <Row style={{marginRight: `auto`}}>
-        <Link to="contact-anchor" spy={true} smooth={true} duration={500}>
-          <H3 
-            onMouseEnter={() => this.setState({arrowClasses: 'animated fadeInLeft'}) }
-            onMouseOut={() => this.setState({arrowClasses: 'animated fadeOutLeft white-text'})}
-          >
-            CONTACT 
-          </H3>
-        </Link>
-        <ArrowIcon
-          className={arrowClasses} 
-          icon={arrowRight} 
-          size={'32px'}  
-        />
+      <ContactButton />
       </Row>
       <A href="https://www.instagram.com/j_a_r_v_1_s/" target="_blank"><GlamorousIcon icon={instagram} size={'32px'} /></A>
       <A href="https://www.facebook.com/chris.jarvis.33" target="_blank"><GlamorousIcon icon={facebookSquare} size={'32px'} /></A>
