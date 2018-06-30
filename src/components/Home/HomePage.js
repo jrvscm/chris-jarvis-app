@@ -24,7 +24,7 @@ const GlamorousMdbContainer = glamorous(Container)({
   backgroundPosition: `center center`,
   color: `#707070`,
   display: `flex`,
-  flexDirection: `columm`,
+  flexDirection: `column`,
   alignItems: `center`,
   justifyContent: `center`
 })

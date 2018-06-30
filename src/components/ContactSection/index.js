@@ -17,6 +17,7 @@ import { Field, reduxForm, focus } from 'redux-form';
 
 import NavBar from '../NavBar';
 import ContactForm from './ContactForm';
+import GithubPhoto from '../../images/github-profile-photo.jpg';
 
 class ContactSection extends Component {
   render(){
@@ -25,7 +26,7 @@ class ContactSection extends Component {
         <Row>
           <div className="text-center text-md-left col-md-6 mt-xl-5 mb-5 wow animated slideInLeft">
             <h1 className="display-4 font-weight-bold h1-responsive">Get in Touch!</h1>
-            <hr className="hr-light"/>
+            <hr className="hr-light"/>            
             <H6 className="mb-4">If you have a project you'd like to discuss, recipes you'd like to share, or absolutely anything else, feel free to fill out the form and send a message my way.</H6>
           </div>
           <Col md="6" xl="5" className="mb-4 wow animated slideInRight">
