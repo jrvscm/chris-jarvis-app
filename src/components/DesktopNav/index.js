@@ -53,16 +53,16 @@ class DesktopNav extends Component {
 		}
 
 		return(
-		<Container isMobile={isMobile} hidden={firstLoad} className={classNames}>
-			<NavList>
-				<NavItem><H3>About </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>
-				<NavItem><H3>Blog </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>		
-				<Link onClick={()=> setHiddenState(true)} to="contact-anchor" spy={true} smooth={true} duration={500}>
-					<NavItem><H3>Contact</H3></NavItem>
-				</Link>			
-				<NavItem><H3>Resources </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>				
-			</NavList>
-		</Container>
+			<Container isMobile={isMobile} hidden={firstLoad} className={classNames}>
+				<NavList>
+					<NavItem><H3>About </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>
+					<NavItem><H3>Blog </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>		
+					<Link onClick={()=> setHiddenState(true)} to="contact-anchor" spy={true} smooth={true} duration={500}>
+						<NavItem><H3>Contact</H3></NavItem>
+					</Link>			
+					<NavItem><H3>Resources </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>				
+				</NavList>
+			</Container>
 		)	
 	}
 }
@@ -87,7 +87,8 @@ const Container = glamorous.div({
 	flexDirection: `column`,
 	alignItems: `center`,
 	justifyContent: `center`,
-	backgroundImage: `linear-gradient(135deg,#03337f 0%,#1567bd 100%)`,
+	//backgroundImage: `linear-gradient(135deg,#00174B 0%,#1567bd 100%)`,
+	backgroundColor: `#00174B`
 }, ({isMobile}) => ({
 	minWidth: isMobile != null ? `100vw` : `auto`,
 	bottom: isMobile != null ? `auto` : 0
