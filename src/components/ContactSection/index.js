@@ -25,7 +25,7 @@ class ContactSection extends Component {
       <Container>
         <Row>
           <div className="text-center text-md-left col-md-6 mt-xl-5 mb-5 wow animated slideInLeft">
-            <h1 className="display-4 font-weight-bold h1-responsive">Get in Touch!</h1>
+            <h1 className="display-4 font-weight-bold h1-responsive" style={{marginTop: 25}}>Get in Touch!</h1>
             <hr className="hr-light"/>            
             <H6 className="mb-4">If you have a project you'd like to discuss, recipes you'd like to share, or absolutely anything else, feel free to fill out the form and send a message my way.</H6>
           </div>
