@@ -103,7 +103,7 @@ const H3 = glamorous.h3({
   marginTop:0,
   marginBottom:0,
   marginRight: `auto`,
-  transform: `all .35s ease`,
+  transition: `all .35s ease`,
   cursor: `pointer`,
   zIndex: 100,
   '&:hover': {

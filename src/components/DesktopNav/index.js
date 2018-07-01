@@ -111,7 +111,7 @@ const NavItem = glamorous.li({
 	justifyContent: `flex-start`,
 	alignItems: `center`,
 	listStyleType: `none`,
-  transform: `all .35s ease`,
+  transition: `all .35s ease`,
   cursor: `pointer`,
   width: `100%`,
 	color: `rgba(255, 255, 255, .3)`,  

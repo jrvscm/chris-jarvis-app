@@ -5,6 +5,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "classnames": "^2.2.6",
+    "contentful": "^6.1.1",
     "cors": "^2.8.4",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
@@ -42,6 +43,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "postinstall": "yarn run build"    
+    "postinstall": "yarn run build"
   }
 }

@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
 import glamorous from 'glamorous';
 import { Container, Card } from 'mdbreact';
-import Typist from 'react-typist';
-import Brackets from '../../images/brackets.png';
-import Css3 from '../../images/css3.png';
-import Html from '../../images/html.png';
-import Lightbulb from '../../images/lightbulb.png';
 
-import NavBar from '../NavBar';
 import CustomFooter from '../CustomFooter';
 import RecentProjects from './RecentProjects';
-import Featured from './Featured';
 import Hero from './Hero';
 import ContactSection from '../ContactSection';
 

@@ -115,7 +115,7 @@ const H2 = glamorous.h2({
 const Logo = glamorous.div({
   height: 48,
   width: 48,
-  transform: `all .35s ease`,
+  transition: `all .35s ease`,
   cursor: `pointer`,
   background: `url(${Beard}) center center no-repeat`,
   backgroundSize: `contain`,
@@ -130,7 +130,7 @@ const HeaderContainer = glamorous.div({
 })
 
 const GlamorousIcon = glamorous(Icon)({
-  transform: `all .35s ease`,
+  transition: `all .35s ease`,
   cursor: `pointer`,
   '&:hover': {
     color: `#F64C72`
@@ -138,7 +138,7 @@ const GlamorousIcon = glamorous(Icon)({
 })
 
 const Highlighter = glamorous.span({
-  transform: `all .35s ease`,
+  transition: `all .35s ease`,
   '&:hover': {
     color: `#F64C72`
   }
