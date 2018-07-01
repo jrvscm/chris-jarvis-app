@@ -4,7 +4,7 @@ import { isLoaded } from 'react-redux-firebase';
 import Beard from '../../images/beard.png';
 import BeardRed from '../../images/beard-red.png';
 import LargePost from './LargePost';
-
+//TODO: add Feed container
 class Blog extends Component {
   render() {
     return(
