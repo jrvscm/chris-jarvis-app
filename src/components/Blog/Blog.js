@@ -5,46 +5,45 @@ import Beard from '../../images/beard.png';
 import BeardRed from '../../images/beard-red.png';
 import LargePost from './LargePost';
 import SmallPost from './SmallPost';
-//TODO: add Feed container
+import CustomFooter from '../CustomFooter';
+
 class Blog extends Component {
   render() {
     return(
-      <Container>  
-        <Header>
-          <Col>
+      <Wrapper>
+        <Container>  
+          <Header>
+            <Col>
+              <Row>
+                <Logo />
+                <H1>
+                  BLOG
+                </H1>
+              </Row>
+            </Col>
+          </Header>
+          <Feed>
             <Row>
-              <Logo />
-              <H1>
-                BLOG
-              </H1>
+              <LargePost />
             </Row>
+            <DoubleRow>
+              <SmallPost />
+              <SmallPost />
+            </DoubleRow>
             <Row>
-              <H3>
-                SOME CLEVER SHIT ABOUT TECH.
-              </H3>
-            </Row>
-          </Col>
-        </Header>
-        <Feed>
-          <Row>
-            <LargePost />
-          </Row>
-          <DoubleRow>
-            <SmallPost />
-            <SmallPost />
-          </DoubleRow>
-          <Row>
-            <LargePost />
-          </Row>          
-          <DoubleRow>
-            <SmallPost />
-            <SmallPost />
-          </DoubleRow>
-          <Row>
-            <LargePost />
-          </Row>      
-        </Feed>
-      </Container>
+              <LargePost />
+            </Row>          
+            <DoubleRow>
+              <SmallPost />
+              <SmallPost />
+            </DoubleRow>
+            <Row>
+              <LargePost />
+            </Row>      
+          </Feed>
+        </Container>
+        <CustomFooter />
+      </Wrapper>
     )
   }
 }
@@ -56,6 +55,9 @@ const mediaQueries = {
     small: '@media only screen and (max-width: 1000px)',
     phone: '@media only screen and (max-width: 600px)',
 }
+
+const Wrapper = glamorous.div({
+})
 
 const Feed = glamorous.div({
   display: `flex`,
@@ -117,6 +119,7 @@ const Logo = glamorous.div({
 const Container = glamorous.div({
   height: `100%`,
   width: `100%`,
+  marginBottom: 100,
   display: `flex`,
   flexDirection: `column`,
   justifyContent: `flex-start`,
