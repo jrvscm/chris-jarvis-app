@@ -16,7 +16,7 @@ const post = {
 
 const LargePost = () => (
 	<Container>
-		<MainRow>
+		<MainCol>
 			<PostImageCol />
 			<PostMetaCol>
 				<H4>{post.tag}</H4>
@@ -44,7 +44,7 @@ const LargePost = () => (
 						</Col>
 				</Row>
 			</PostMetaCol>
-		</MainRow>
+		</MainCol>
 	</Container>
 )
 
@@ -66,7 +66,7 @@ const Col = glamorous.div({
 })
 
 const Container = glamorous.div({
-	height: 325,
+	height: `100%`,
 	width: `100%`,
 	color: `black`,
 	cursor: `pointer`,
@@ -78,14 +78,25 @@ const Container = glamorous.div({
 	mozBoxShadow: ` -1px 3px 26px -1px rgba(0,0,0,0.75)`,
 	oBoxShadow: ` -1px 3px 26px -1px rgba(0,0,0,0.75)`,
 	boxShadow: ` -1px 3px 26px -1px rgba(0,0,0,0.75)`,	
+	'&:nth-child(1)':{
+		marginRight: 10
+	},
+	'&:nth-child(2)':{
+		marginLeft: 10
+	},
 	'&:hover': {
 		webkitTransform: `scale(1.02)`,
 		mozTransform: `scale(1.02)`,
 		oTransform: `scale(1.02)`,
 		transform: `scale(1.02)`
 	},
-	[mediaQueries.small]:{
-		height: `100%`
+	[mediaQueries.small]: {
+		'&:nth-child(1)': {
+			marginRight: 0,
+		},
+		'&:nth-child(2)': {
+			marginLeft: 0
+		}
 	}
 })
 
@@ -99,18 +110,15 @@ const Row = glamorous.div({
 	background: `#fff`
 })
 
-const MainRow = glamorous.div({
+const MainCol = glamorous.div({
 	display: `flex`,
-	flexDirection: `row`,
+	flexDirection: `column`,
 	alignItems: `center`,
 	justifyContent: `center`,
 	height: `100%`,
 	width: `100%`,
 	background: `#fff`,
 	borderRadius: 6,
-	[mediaQueries.small]: {
-		flexDirection: `column`
-	}
 })
 
 const PostMetaCol = glamorous.div({
@@ -119,13 +127,10 @@ const PostMetaCol = glamorous.div({
 	justifyContent: `center`,
 	alignItems: `center`,
 	height: `100%`,
-	width: `40%`, 
+	width: `100%`, 
 	padding: 20, 
 	justifyContent: "space-between !important", 
 	alignItems: `flex-start`,
-	[mediaQueries.small]: {
-		width: `100%`
-	}	
 })
 
 const PostImageCol = glamorous.div({
@@ -134,20 +139,14 @@ const PostImageCol = glamorous.div({
 	justifyContent: `center`,
 	alignItems: `center`,
 	height: `100%`,
-	minHeight: 250,
-	width: `60%`, 
+	width: `100%`,
+	minHeight: 250, 
 	borderTopLeftRadius: 6,
-	borderBottomLeftRadius: 6,
+	borderTopRightRadius: 6,
 	backgroundImage: `url(${post.image})`,
 	backgroundSize: `cover`,
 	backgroundPosition: `center center`,
-	backgroundRepeat: `no-repeat`,
-	[mediaQueries.small]: {
-		width: `100%`,
-		borderTopLeftRadius: 6,
-		borderTopRightRadius: 6,
-		borderBottomLeftRadius: 0,		
-	}
+	backgroundRepeat: `no-repeat`
 })
 
 const H4 = glamorous.h4({
