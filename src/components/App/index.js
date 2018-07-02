@@ -8,6 +8,7 @@ import {
 
 import HomePage from '../Home';
 import Blog from '../Blog';
+import BlogPost from '../BlogPost';
 import PortfolioPage from '../PortfolioPage';
 import RouteListener from '../RouteListener';
 import withAuthentication from '../session/withAuthentication';
@@ -23,6 +24,7 @@ const App = () => (
     	  <Redirect exact path="/" to={routes.HOME} />
         <Route exact path={routes.HOME} component={HomePage} />
         <Route exact path={routes.BLOG} component={Blog} />
+        <Route exact path={routes.POST} component={BlogPost} />
         <Route exact path={routes.PORTFOLIO} component={PortfolioPage} />
       </Switch>
     </div>

@@ -149,7 +149,7 @@ class Hero extends Component {
     <Row>
       <HeaderContainer>
         <H1>WELCOME TO</H1>
-        <H1>CHRISJARVIS.ONLINE</H1>
+        <H1>CHRISJARVIS.APP</H1>
         <H2>
           <Highlighter>I </Highlighter> 
           <Highlighter>B</Highlighter>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import glamorous from 'glamorous';
 import { isLoaded } from 'react-redux-firebase';
-import Beard from '../../images/beard.png';
 import LargePost from './LargePost';
 import SmallPost from './SmallPost';
 import CustomFooter from '../CustomFooter';
@@ -9,17 +8,21 @@ import DesktopNav from '../DesktopNav';
 
 class Blog extends Component {
   render() {
-
-    const { hidden, setHiddenState, history } = this.props;
-
+    const { 
+      hidden, 
+      setHiddenState, 
+    } = this.props;
+    
     return(
       <Wrapper>
-      <DesktopNav hidden={hidden} setHiddenState={setHiddenState} />
+      <DesktopNav 
+        hidden={hidden} 
+        setHiddenState={setHiddenState} 
+      />
         <Container>  
           <Header>
             <Col>
               <Row>
-                <Logo />
                 <H1>
                   BLOG
                 </H1>
@@ -106,16 +109,6 @@ const DoubleRow = glamorous.div({
   }
 })
 
-const Logo = glamorous.div({
-  height: 48,
-  width: 48,
-  marginRight: 15,
-  transition: `all .35s ease`,
-  cursor: `pointer`,
-  background: `url(${Beard}) center center no-repeat`,
-  backgroundSize: `contain`
-})
-
 const Container = glamorous.div({
   height: `100%`,
   width: `100%`,
@@ -153,16 +146,3 @@ const H1 = glamorous.h1({
   }
 })
 
-const H3 = glamorous.h2({
-  fontSize: 20,
-  color: `rgba(255, 255, 255, .3)`,
-  [mediaQueries.med]:{
-    fontSize: 50
-  },  
-  [mediaQueries.small]:{
-    fontSize: 40
-  },
-  [mediaQueries.phone]: {
-    fontSize: 20
-  }
-})

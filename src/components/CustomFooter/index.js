@@ -54,7 +54,7 @@ class CustomFooter extends React.Component {
                 </Container>
                 <div className="footer-copyright text-center">
                     <Container fluid>
-                        &copy; {(new Date().getFullYear())} Copyright: <a href="https://chrisjarvis.online"> chrisjarvis.online </a>
+                        &copy; {(new Date().getFullYear())} Copyright: <a href="https://chrisjarvis.app"> chrisjarvis.app </a>
                     </Container>
                 </div>
             </NoTopMarginFooter>

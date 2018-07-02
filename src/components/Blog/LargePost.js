@@ -74,14 +74,14 @@ const Container = glamorous.div({
 	marginTop: 10,
 	marginBottom: 10,
 	transition: `all .35s ease-in-out`,
-	webkitBoxShadow: ` -1px 3px 26px -1px rgba(0,0,0,0.75)`,
-	mozBoxShadow: ` -1px 3px 26px -1px rgba(0,0,0,0.75)`,
-	oBoxShadow: ` -1px 3px 26px -1px rgba(0,0,0,0.75)`,
+	WebkitBoxShadow: ` -1px 3px 26px -1px rgba(0,0,0,0.75)`,
+	MozBoxShadow: ` -1px 3px 26px -1px rgba(0,0,0,0.75)`,
+	OBoxShadow: ` -1px 3px 26px -1px rgba(0,0,0,0.75)`,
 	boxShadow: ` -1px 3px 26px -1px rgba(0,0,0,0.75)`,	
 	'&:hover': {
-		webkitTransform: `scale(1.02)`,
-		mozTransform: `scale(1.02)`,
-		oTransform: `scale(1.02)`,
+		WebkitTransform: `scale(1.02)`,
+		MozTransform: `scale(1.02)`,
+		OTransform: `scale(1.02)`,
 		transform: `scale(1.02)`
 	},
 	[mediaQueries.small]:{
