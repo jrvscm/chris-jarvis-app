@@ -118,11 +118,7 @@ const Logo = glamorous.div({
   transition: `all .35s ease`,
   cursor: `pointer`,
   background: `url(${Beard}) center center no-repeat`,
-  backgroundSize: `contain`,
-  '&:hover': {
-    background: `url(${BeardRed}) center center no-repeat`,
-    backgroundSize: `contain`
-  }
+  backgroundSize: `contain`
 })
 
 const HeaderContainer = glamorous.div({
