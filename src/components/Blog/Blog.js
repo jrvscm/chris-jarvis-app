@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 import glamorous from 'glamorous';
 import { isLoaded } from 'react-redux-firebase';
 import Beard from '../../images/beard.png';
-import BeardRed from '../../images/beard-red.png';
 import LargePost from './LargePost';
 import SmallPost from './SmallPost';
 import CustomFooter from '../CustomFooter';
+import DesktopNav from '../DesktopNav';
 
 class Blog extends Component {
   render() {
+
+    const { hidden, setHiddenState, history } = this.props;
+
     return(
       <Wrapper>
+      <DesktopNav hidden={hidden} setHiddenState={setHiddenState} />
         <Container>  
           <Header>
             <Col>

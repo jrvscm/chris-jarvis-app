@@ -9,11 +9,8 @@ import { twitterSquare } from 'react-icons-kit/fa/twitterSquare';
 import { linkedinSquare } from 'react-icons-kit/fa/linkedinSquare';
 import { githubSquare } from 'react-icons-kit/fa/githubSquare';
 import { instagram } from 'react-icons-kit/fa/instagram';
-import { navicon } from 'react-icons-kit/fa/navicon'
 
-
-import Beard from '../../images/beard.png';
-import BeardRed from '../../images/beard-red.png';
+import Logo from '../UIElements';
 import HTML from '../../images/html.png';
 import DesktopNav from '../DesktopNav';
 import ContactButton from './ContactButton';
@@ -36,20 +33,6 @@ const Row = glamorous.div({
   alignItems: `center`,
   color: `white`
 })  
-
-const TopRow = glamorous.div({
-  position: `absolute`,
-  top: 0,
-  left: 0,
-  right: 0,
-  margin: 25,
-  display: `flex`,
-  flexDirection: `row`,
-  justifyContent: `space-between`,
-  flexWrap: `wrap`,
-  alignItems: `center`,
-  color: `white`
-}) 
 
 const BottomRow = glamorous.div({
   position: `absolute`,
@@ -112,15 +95,6 @@ const H2 = glamorous.h2({
   }
 })
 
-const Logo = glamorous.div({
-  height: 48,
-  width: 48,
-  transition: `all .35s ease`,
-  cursor: `pointer`,
-  background: `url(${Beard}) center center no-repeat`,
-  backgroundSize: `contain`
-})
-
 const HeaderContainer = glamorous.div({
   width: `100%`,
 })
@@ -172,15 +146,6 @@ class Hero extends Component {
   return ( 
   <Container>
     <DesktopNav hidden={hidden} setHiddenState={setHiddenState} />
-    <TopRow>
-      <Logo />
-      <GlamorousIcon
-        style={{position: `fixed`, top: 25, right: 25, zIndex: 200}} 
-        icon={navicon} 
-        size={'32px'}
-        onClick={() => {hidden === true ? setHiddenState(false) : setHiddenState(true)} } 
-      />
-    </TopRow>
     <Row>
       <HeaderContainer>
         <H1>WELCOME TO</H1>
