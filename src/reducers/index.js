@@ -4,11 +4,13 @@ import { reducer as formReducer } from 'redux-form';
 import session from './session';
 import user from './user';
 import navbar from './navbar';
+import blog from './blog';
 
 const rootReducer = combineReducers({
   navbar,
   session,
   user,
+  blog,
   firebase: firebaseReducer,
   form: formReducer
 });

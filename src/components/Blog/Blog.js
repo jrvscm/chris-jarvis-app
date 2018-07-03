@@ -7,12 +7,24 @@ import CustomFooter from '../CustomFooter';
 import DesktopNav from '../DesktopNav';
 
 class Blog extends Component {
+  componentDidMount() {
+    const { fetchPosts } = this.props
+    fetchPosts();
+  }
+
   render() {
     const { 
       hidden, 
-      setHiddenState, 
+      setHiddenState,
+      loading,
+      posts 
     } = this.props;
     
+    if(loading === true || posts.length < 1) {
+      //TODO: replace with loading spinner
+      return (<div>...loading</div>)
+    }
+
     return(
       <Wrapper>
       <DesktopNav 
@@ -31,22 +43,12 @@ class Blog extends Component {
           </Header>
           <Feed>
             <Row>
-              <LargePost />
+              <LargePost post={posts[0].fields} />
             </Row>
             <DoubleRow>
-              <SmallPost />
-              <SmallPost />
-            </DoubleRow>
-            <Row>
-              <LargePost />
-            </Row>          
-            <DoubleRow>
-              <SmallPost />
-              <SmallPost />
-            </DoubleRow>
-            <Row>
-              <LargePost />
-            </Row>      
+              <SmallPost post={posts[1].fields} />
+              <SmallPost post={posts[2].fields} />
+            </DoubleRow>   
           </Feed>
         </Container>
         <CustomFooter />
@@ -54,6 +56,7 @@ class Blog extends Component {
     )
   }
 }
+
 
 export default Blog;
 

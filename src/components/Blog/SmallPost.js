@@ -2,22 +2,11 @@ import React from 'react';
 import glamorous from 'glamorous';
 import { Avatar } from 'mdbreact';
 import GithubPhoto from '../../images/github-profile-photo.jpg';
-//snippet must be under 180 characters to be safe for overflow
-const post = {
- 	title: 'My First Post',
- 	author: 'Chris Jarvis',
- 	snippet: `Hey! It's great to have you :). We know that first impressions are important, so we've populated yoru new site with some initial getting started posts taht will help you get started.`,
- 	image: 'https://images.unsplash.com/photo-1523978591478-c753949ff840?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c92fa17c403874495c84c6f31f5ef403&auto=format&fit=crop&w=1350&q=80',
- 	readTime: '1 MIN READ',
- 	tag: 'GETTING STARTED',
- 	date: 'May 25, 2018',
- 	author: 'Chris Jarvis'
- }
 
-const LargePost = () => (
+const LargePost = ({post}) => (
 	<Container>
 		<MainCol>
-			<PostImageCol />
+			<PostImageCol post={post} />
 			<PostMetaCol>
 				<H4>{post.tag}</H4>
 				<h2>{post.title}</h2>
@@ -143,11 +132,12 @@ const PostImageCol = glamorous.div({
 	minHeight: 250, 
 	borderTopLeftRadius: 6,
 	borderTopRightRadius: 6,
-	backgroundImage: `url(${post.image})`,
+}, ({post}) => ({
+	backgroundImage: `url(${post.image.fields.file.url})`,
 	backgroundSize: `cover`,
 	backgroundPosition: `center center`,
 	backgroundRepeat: `no-repeat`
-})
+}))
 
 const H4 = glamorous.h4({
 	color: `#738a94`, 
