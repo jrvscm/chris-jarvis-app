@@ -135,7 +135,7 @@ const PostImageCol = glamorous.div({
 		borderBottomLeftRadius: 0,		
 	}
 }, ({post}) => ({
-	backgroundImage: `url(${post.image.fields.file.url})`,
+	backgroundImage: `url(${post.image})`,
 	backgroundSize: `cover`,
 	backgroundPosition: `center center`,
 	backgroundRepeat: `no-repeat`,	

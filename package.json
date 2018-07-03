@@ -24,6 +24,7 @@
     "react-fittext": "^1.0.0",
     "react-icons": "^2.2.7",
     "react-icons-kit": "^1.1.5",
+    "react-markdown": "^3.3.4",
     "react-redux": "^5.0.7",
     "react-redux-firebase": "^2.1.1",
     "react-router-dom": "^4.2.2",

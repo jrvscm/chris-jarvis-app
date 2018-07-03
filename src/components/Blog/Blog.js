@@ -88,7 +88,7 @@ const Feed = glamorous.div({
   alignItems: `center`,
   justifyContent: `center`,
   height: `100%`,
-  width: `65%`,
+  width: `70%`,
   marginTop: -100,
   [mediaQueries.small]: {
     width: `85%`

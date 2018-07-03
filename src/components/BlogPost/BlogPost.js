@@ -1,6 +1,7 @@
 import React , { Component } from 'react';
 import glamorous from 'glamorous';
 import { withRouter } from 'react-router-dom';
+import * as Markdown from 'react-markdown';
 
 import DesktopNav from '../DesktopNav';
 import CustomFooter from '../CustomFooter';
@@ -52,7 +53,7 @@ class BlogPost extends Component {
               <PostImage image={post.fields.image} />
             </Row>
             <Col style={{marginTop: 25}}>
-              <p>{post.fields.content}</p>
+              <GlamorousMarkdown source={post.fields.content} />
             </Col>      
           </PostBody>     
         </Container>
@@ -84,16 +85,7 @@ const PostImage = glamorous.div({
 
 const H2 = glamorous.h2({
   fontSize: 20,
-  color: `rgba(255, 255, 255, .3)`,
-  [mediaQueries.med]:{
-    fontSize: 50
-  },  
-  [mediaQueries.small]:{
-    fontSize: 40
-  },
-  [mediaQueries.phone]: {
-    fontSize: 20
-  }
+  color: `rgba(255, 255, 255, .3)`
 })
 
 const PostBody = glamorous.div({
@@ -116,6 +108,11 @@ const PostBody = glamorous.div({
   [mediaQueries.phone]: {
    width: `95%`
   }
+})
+
+const GlamorousMarkdown = glamorous(Markdown)({
+  width: `100%`,
+  marginBottom: 25
 })
 
 const Container = glamorous.div({
@@ -146,7 +143,7 @@ const Row = glamorous.div({
 })
 
 const Header = glamorous.div({
-  height: `50vh`,
+  height: `60vh`,
   width: `100%`,
   display: `flex`,
   flexDirection: `column`,

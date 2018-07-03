@@ -13,3 +13,8 @@ div.animated {
   -o-animation-duration: .35s;
   animation-duration: .35s;
 }
+
+img {
+  min-width: 100%;
+  max-width: 100%;
+}
