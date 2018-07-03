@@ -17,13 +17,14 @@ class Blog extends Component {
       hidden, 
       setHiddenState,
       loading,
-      posts 
+      posts,
+      history 
     } = this.props;
     
     if(loading === true || posts.length < 1) {
       //TODO: replace with loading spinner
       return (<div>...loading</div>)
-    }
+    }///
 
     return(
       <Wrapper>
@@ -43,12 +44,24 @@ class Blog extends Component {
           </Header>
           <Feed>
             <Row>
-              <LargePost post={posts[0].fields} />
+              <LargePost
+                id={posts[0].sys.id}
+                post={posts[0].fields} 
+                posts={posts} 
+              />
             </Row>
             <DoubleRow>
-              <SmallPost post={posts[1].fields} />
-              <SmallPost post={posts[2].fields} />
-            </DoubleRow>   
+              <SmallPost 
+                id={posts[1].sys.id}
+                post={posts[1].fields}
+                posts={posts} 
+              />
+              <SmallPost 
+                post={posts[2].sys.id}
+                post={posts[2].fields}
+                posts={posts} 
+              />
+            </DoubleRow>
           </Feed>
         </Container>
         <CustomFooter />

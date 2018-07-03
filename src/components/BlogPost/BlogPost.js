@@ -1,73 +1,68 @@
 import React , { Component } from 'react';
 import glamorous from 'glamorous';
+import { withRouter } from 'react-router-dom';
 
 import DesktopNav from '../DesktopNav';
 import CustomFooter from '../CustomFooter';
 
-const post = {
- 	title: 'My First Post',
- 	author: 'Chris Jarvis',
- 	snippet: `Hey! It's great to have you :). We know that first impressions are important, so we've populated yoru new site with some initial getting started posts taht will help you get started.`,
- 	image: 'https://images.unsplash.com/photo-1523978591478-c753949ff840?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c92fa17c403874495c84c6f31f5ef403&auto=format&fit=crop&w=1350&q=80',
- 	readTime: '1 MIN READ',
- 	tag: 'GETTING STARTED',
- 	date: 'May 25, 2018',
- 	author: 'Chris Jarvis',
-  contentBlock: `Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?`
- }
+class BlogPost extends Component {
+  componentDidMount() {
+    const { fetchPost, match } = this.props;
+    fetchPost(match.params.id)
+  }
 
+  render() {
+    
+    const {
+      hidden, 
+      setHiddenState, 
+      loading,
+      post
+    } = this.props;
 
-const BlogPost = ({hidden, setHiddenState}) => (
-  <Wrapper>
-    <DesktopNav 
-      hidden={hidden} 
-      setHiddenState={setHiddenState} 
-    />
-    <Container>  
-      <Header>
-        <Col>
-          <Row>
-            <H1>
-              {post.title}
-            </H1>
-          </Row>
-          <Row>
-            <H2>Posted on {post.date}</H2>
-          </Row>
-          <Row>
-            <H2>by {post.author}</H2> 
-          </Row>
-        </Col>
-      </Header>
-      <PostBody> 
-        <Row>
-          <PostImage image={post.image} />
-        </Row>
-        <Col style={{marginTop: 25}}>
-          <h2 style={{marginRight: `auto`}}>This is a great subtitle</h2>
-          <p>
-            {post.contentBlock}
-          </p>
-          <h2 style={{marginRight: `auto`}}>This is an even better one</h2>
-          <p>
-            {post.contentBlock}
-          </p>
-          <h2 style={{marginRight: `auto`}}>This is an even better one</h2>          
-          <p>
-            {post.contentBlock}
-          </p>
-          <h2 style={{marginRight: `auto`}}>This is an even better one</h2>          
-          <p>
-            {post.contentBlock}
-          </p>
-        </Col>      
-      </PostBody> 
-    </Container>
-    <CustomFooter />
-  </Wrapper>			 
-)
+    if(loading === true || !post) {
+      //TODO: replace with loading spinner
+      return (<div>...loading</div>)
+    }
 
-export default BlogPost;
+    return(
+      <Wrapper>
+        <DesktopNav 
+          hidden={hidden} 
+          setHiddenState={setHiddenState} 
+        />
+        <Container>  
+          <Header>
+            <Col>
+              <Row>
+                <H1>
+                  {post.fields.title}
+                </H1>
+              </Row>
+              <Row>
+                <H2>Posted on {post.fields.date}</H2>
+              </Row>
+              <Row>
+                <H2>by {post.fields.author}</H2> 
+              </Row>
+            </Col>
+          </Header>
+          <PostBody> 
+            <Row>
+              <PostImage image={post.fields.image} />
+            </Row>
+            <Col style={{marginTop: 25}}>
+              <p>{post.fields.content}</p>
+            </Col>      
+          </PostBody>     
+        </Container>
+        <CustomFooter />
+      </Wrapper>			 
+    )
+  }
+}
+
+export default withRouter(BlogPost);
 
 const mediaQueries = {
     med: '@media only screen and (max-width: 1200px)',

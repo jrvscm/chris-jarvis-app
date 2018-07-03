@@ -72,11 +72,12 @@ class DesktopNav extends Component {
 			<Container isMobile={isMobile} hidden={!touched} className={classNames}>
 				<NavList>
 					<NavItem><H3>About </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>
-					<NavItem><H3>Blog </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>		
+					<NavItem onClick={() => history.push('/blog')}><H3>Blog</H3></NavItem>		
 					<Link onClick={()=> setHiddenState(true)} to="contact-anchor" spy={true} smooth={true} duration={500}>
 						<NavItem><H3>Contact</H3></NavItem>
 					</Link>			
-					<NavItem><H3>Resources </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>				
+					<NavItem><H3>Resources </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>		
+					<NavItem onClick={() => history.push('/home')}><H3>Home</H3></NavItem>									
 				</NavList>
 			</Container>
 		</div>

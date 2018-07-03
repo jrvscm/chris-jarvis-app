@@ -5,12 +5,14 @@ import session from './session';
 import user from './user';
 import navbar from './navbar';
 import blog from './blog';
+import blogpost from './blogpost';
 
 const rootReducer = combineReducers({
   navbar,
   session,
   user,
   blog,
+  blogpost,
   firebase: firebaseReducer,
   form: formReducer
 });

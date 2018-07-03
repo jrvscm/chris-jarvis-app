@@ -11,3 +11,7 @@ export const SET_FIRST_LOAD = 'SET_FIRST_LOAD';
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const SET_LOADING = 'SET_LOADING';
 export const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS';
+
+//blogPost
+export const FETCH_POST = 'FETCH_POST';
+export const FETCH_POST_SUCCESS = 'FETCH_POST_SUCCESS';

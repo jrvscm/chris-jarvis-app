@@ -2,7 +2,7 @@ import { FETCH_POSTS_SUCCESS, SET_LOADING } from '../actions';
 
 const INITIAL_STATE = {
   posts: [],
-  loading: false
+  loading: true
 };
 
 function blog(state = INITIAL_STATE, action) {

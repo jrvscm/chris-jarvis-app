@@ -1,10 +1,11 @@
 import React from 'react';
 import glamorous from 'glamorous';
+import { withRouter } from 'react-router-dom';
 import { Avatar } from 'mdbreact';
 import GithubPhoto from '../../images/github-profile-photo.jpg';
 
-const LargePost = ({post}) => (
-	<Container>
+const LargePost = ({post, posts, history, id}) => (
+	<Container onClick={() => history.push(`/blog/${id}`)}>
 		<MainRow>
 			<PostImageCol post={post}/>
 			<PostMetaCol>
@@ -37,7 +38,7 @@ const LargePost = ({post}) => (
 	</Container>
 )
 
-export default LargePost;
+export default withRouter(LargePost);
 
 const mediaQueries = {
     med: '@media only screen and (max-width: 1200px)',
