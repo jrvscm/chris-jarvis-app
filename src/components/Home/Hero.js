@@ -121,6 +121,7 @@ const A = glamorous.a({
 
 class Hero extends Component { 
   componentDidMount() {
+    const { scrollToContact, setScrollToContact } = this.props;
 
     Events.scrollEvent.register('begin', function(to, element) {
       console.log("begin", arguments);
@@ -132,6 +133,14 @@ class Hero extends Component {
 
     scrollSpy.update();
 
+    if(scrollToContact === true) {
+      this.scrollToBottom()
+      setScrollToContact(false)
+    }
+  }
+
+  scrollToBottom() {
+    scroll.scrollToBottom();
   }
 
   componentWillUnmount() {

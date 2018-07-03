@@ -1,9 +1,10 @@
-import { UPDATE_DIMENSIONS, SET_HIDDEN_STATE, SET_FIRST_LOAD } from '../actions';
+import { UPDATE_DIMENSIONS, SET_HIDDEN_STATE, SET_FIRST_LOAD, SET_SCROLL_TO_CONTACT } from '../actions';
 
 const INITIAL_STATE = {
   hidden: true,
   dimensions: null,
-  firstLoad: true
+  firstLoad: true,
+  scrollToContact: false
 };
 
 function navbar(state = INITIAL_STATE, action) {
@@ -12,6 +13,8 @@ function navbar(state = INITIAL_STATE, action) {
       return { ...state, dimensions: action.dimensions };
     case SET_HIDDEN_STATE:
     	return { ...state, hidden: action.status };
+    case SET_SCROLL_TO_CONTACT:
+      return { ...state, scrollToContact: action.status };
     default:
       return state;
   }

@@ -7,6 +7,7 @@ import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } f
 import { Icon } from 'react-icons-kit';
 import { navicon } from 'react-icons-kit/fa/navicon';
 import { Logo } from '../UIElements';
+
 const MobileDetect = require('mobile-detect');
 const md = new MobileDetect(window.navigator.userAgent);
 const isMobile = md.mobile();
@@ -20,6 +21,12 @@ class DesktopNav extends Component {
 		}
 	}
 
+	handleLinkClick() {
+		const { history, setScrollToContact } = this.props;
+		setScrollToContact(true);
+		history.push('/home');
+	}
+
 	componentDidMount() {
     Events.scrollEvent.register('begin', function(to, element) {
       console.log("begin", arguments);
@@ -30,7 +37,6 @@ class DesktopNav extends Component {
     });
 
     scrollSpy.update();
-
   }
 
   componentWillUnmount() {
@@ -50,13 +56,24 @@ class DesktopNav extends Component {
 	}
 
 	render() {
-		const { hidden, setHiddenState, history } = this.props;
+		const { hidden, setHiddenState, history, scrollToContact } = this.props;
 		const { touched } = this.state;
 		let classNames = hidden === true ? 'animated slideOutRight' : 'animated slideInRight';
 
 		if(isMobile !== null) {
 			classNames = hidden === true ? 'animated slideOutUp' : 'animated slideInDown';
 		}
+
+		const renderContactLink = window.location.pathname === '/home' ?
+		(
+			<Link onClick={() => setHiddenState(true)} to="contact-anchor" spy={true} smooth={true} duration={500}>
+				<NavItem><H3>Contact</H3></NavItem>
+			</Link>
+		) : (
+			<Link onClick={() => this.handleLinkClick()}>
+				<NavItem><H3>Contact</H3></NavItem>
+			</Link>
+		)
 
 		return(
 		<div>
@@ -73,9 +90,9 @@ class DesktopNav extends Component {
 				<NavList>
 					<NavItem><H3>About </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>
 					<NavItem onClick={() => history.push('/blog')}><H3>Blog</H3></NavItem>		
-					<Link onClick={()=> setHiddenState(true)} to="contact-anchor" spy={true} smooth={true} duration={500}>
-						<NavItem><H3>Contact</H3></NavItem>
-					</Link>			
+						{
+							renderContactLink
+						}			
 					<NavItem><H3>Resources </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>		
 					<NavItem onClick={() => history.push('/home')}><H3>Home</H3></NavItem>									
 				</NavList>
@@ -131,8 +148,8 @@ const Container = glamorous.div({
 	//backgroundImage: `linear-gradient(135deg,#00174B 0%,#1567bd 100%)`,
 	backgroundColor: `#00174B`
 }, ({isMobile}) => ({
-	minWidth: isMobile != null ? `100vw` : `auto`,
-	bottom: isMobile != null ? `auto` : 0
+	minWidth: isMobile !== null ? `100vw` : `auto`,
+	bottom: isMobile !== null ? `auto` : 0
 }))
 
 const NavList = glamorous.ul({

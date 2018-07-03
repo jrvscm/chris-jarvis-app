@@ -6,6 +6,7 @@ export const AUTH_USER_SET = 'AUTH_USER_SET';
 export const UPDATE_DIMENSIONS = 'UPDATE_DIMENSIONS';
 export const SET_HIDDEN_STATE = 'SET_HIDDEN_STATE';
 export const SET_FIRST_LOAD = 'SET_FIRST_LOAD';
+export const SET_SCROLL_TO_CONTACT = 'SET_SCROLL_TO_CONTACT';
 
 //blog
 export const FETCH_POSTS = 'FETCH_POSTS';

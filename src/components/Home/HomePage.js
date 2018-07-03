@@ -32,9 +32,14 @@ const Wrapper = glamorous.div({
   display: `flex`
 })
 
-const HomePage = ({hidden, setHiddenState}) => (
+const HomePage = ({hidden, setHiddenState, scrollToContact, setScrollToContact}) => (
   <div>
-    <Hero hidden={hidden} setHiddenState={setHiddenState} />
+    <Hero 
+      hidden={hidden} 
+      setHiddenState={setHiddenState} 
+      scrollToContact={scrollToContact} 
+      setScrollToContact={setScrollToContact} 
+    />
     <GlamorousMdbContainer style={{backgroundColor:"#E7E3D4"}}>
       <RecentProjects />
     </GlamorousMdbContainer>

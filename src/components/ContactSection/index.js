@@ -16,7 +16,6 @@ import {
 } from 'mdbreact';
 import { Field, reduxForm, focus } from 'redux-form';
 
-import NavBar from '../NavBar';
 import ContactForm from './ContactForm';
 import GithubPhoto from '../../images/github-profile-photo.jpg';
 

@@ -10,6 +10,7 @@ class BlogPost extends Component {
   componentDidMount() {
     const { fetchPost, match } = this.props;
     fetchPost(match.params.id)
+    window.scrollTo(0,0)
   }
 
   render() {
@@ -18,7 +19,8 @@ class BlogPost extends Component {
       hidden, 
       setHiddenState, 
       loading,
-      post
+      post,
+      setScrollToContact
     } = this.props;
 
     if(loading === true || !post) {
@@ -29,6 +31,7 @@ class BlogPost extends Component {
     return(
       <Wrapper>
         <DesktopNav 
+          setScrollToContact={setScrollToContact}
           hidden={hidden} 
           setHiddenState={setHiddenState} 
         />
