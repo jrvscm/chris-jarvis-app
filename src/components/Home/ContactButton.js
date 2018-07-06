@@ -90,7 +90,7 @@ const Container = glamorous.div({
 })
 
 const ArrowIcon = glamorous(Icon)({
-  transform: `all .35s ease !important`,
+  transition: `all .25s ease`,
   cursor: `pointer`,
   color: `#F64C72`,
   marginLeft: 15
@@ -103,7 +103,7 @@ const H3 = glamorous.h3({
   marginTop:0,
   marginBottom:0,
   marginRight: `auto`,
-  transition: `all .35s ease`,
+  transition: `all .25s ease`,
   cursor: `pointer`,
   zIndex: 100,
   '&:hover': {

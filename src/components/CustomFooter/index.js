@@ -5,7 +5,7 @@ import { Col, Container, Row, Footer } from 'mdbreact';
 const I = glamorous.i({
     marginRight: 15,
     marginLeft: 15,
-    transition: `all .35s ease`,
+    transition: `all .25s ease`,
     '&:hover': {
         color: `#F64C72 !important`
     }    

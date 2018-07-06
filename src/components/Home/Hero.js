@@ -100,7 +100,7 @@ const HeaderContainer = glamorous.div({
 })
 
 const GlamorousIcon = glamorous(Icon)({
-  transition: `all .35s ease`,
+  transition: `all .25s ease`,
   cursor: `pointer`,
   '&:hover': {
     color: `#F64C72`
@@ -108,7 +108,7 @@ const GlamorousIcon = glamorous(Icon)({
 })
 
 const Highlighter = glamorous.span({
-  transition: `all .35s ease`,
+  transition: `all .25s ease`,
   '&:hover': {
     color: `#F64C72`
   }

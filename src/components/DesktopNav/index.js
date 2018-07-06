@@ -89,7 +89,7 @@ class DesktopNav extends Component {
 			<Container isMobile={isMobile} hidden={!touched} className={classNames}>
 				<NavList>
 					<NavItem><H3>About </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>
-					<NavItem onClick={console.log(`() => history.push('/blog'`)}><H3>Blog </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>		
+					<NavItem onClick={() => history.push('/blog')}><H3>Blog </H3><GlamorousBadge>Coming Soon!</GlamorousBadge></NavItem>		
 						{
 							renderContactLink
 						}			
@@ -105,7 +105,7 @@ class DesktopNav extends Component {
 export default withRouter(DesktopNav);
 
 const GlamorousIcon = glamorous(Icon)({
-  transition: `all .35s ease`,
+  transition: `all .25s ease`,
   cursor: `pointer`,
   '&:hover': {
     color: `#F64C72`
@@ -169,7 +169,7 @@ const NavItem = glamorous.li({
 	justifyContent: `flex-start`,
 	alignItems: `center`,
 	listStyleType: `none`,
-  transition: `all .35s ease`,
+  transition: `all .25s ease`,
   cursor: `pointer`,
   width: `100%`,
 	color: `rgba(255, 255, 255, .3)`,  

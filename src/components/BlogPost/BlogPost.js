@@ -2,7 +2,10 @@ import React , { Component } from 'react';
 import glamorous from 'glamorous';
 import { withRouter } from 'react-router-dom';
 import * as Markdown from 'react-markdown';
+import ReactLoading from 'react-loading';
+import moment from 'moment';
 
+import { Loader } from '../UIElements';
 import DesktopNav from '../DesktopNav';
 import CustomFooter from '../CustomFooter';
 
@@ -14,7 +17,6 @@ class BlogPost extends Component {
   }
 
   render() {
-    
     const {
       hidden, 
       setHiddenState, 
@@ -24,8 +26,11 @@ class BlogPost extends Component {
     } = this.props;
 
     if(loading === true || !post) {
-      //TODO: replace with loading spinner
-      return (<div>...loading</div>)
+      return (
+        <Loader>
+          <ReactLoading color={'#03337f'} className='overlay-loading' />
+        </Loader>
+      )
     }
 
     return(
@@ -44,7 +49,7 @@ class BlogPost extends Component {
                 </H1>
               </Row>
               <Row>
-                <H2>Posted on {post.fields.date}</H2>
+                <H2>Posted on {moment(post.fields.date).format("MMM Do YYYY")}</H2>
               </Row>
               <Row>
                 <H2>by {post.fields.author}</H2> 
@@ -71,7 +76,7 @@ export default withRouter(BlogPost);
 const mediaQueries = {
     med: '@media only screen and (max-width: 1200px)',
     small: '@media only screen and (max-width: 1000px)',
-    phone: '@media only screen and (max-width: 600px)',
+    phone: '@media only screen and (max-width: 600px)'
 }
 
 const PostImage = glamorous.div({

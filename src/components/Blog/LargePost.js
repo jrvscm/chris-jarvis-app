@@ -3,6 +3,7 @@ import glamorous from 'glamorous';
 import { withRouter } from 'react-router-dom';
 import { Avatar } from 'mdbreact';
 import GithubPhoto from '../../images/github-profile-photo.jpg';
+import moment from 'moment';
 
 const LargePost = ({post, posts, history, id}) => (
 	<Container onClick={() => history.push(`/blog/${id}`)}>
@@ -27,7 +28,7 @@ const LargePost = ({post, posts, history, id}) => (
 					/>
 						<Col>
 							<H4 style={{margin: 0}}>{post.author}</H4>
-							<H4 style={{margin: 0}}>{post.date}</H4>
+							<H4 style={{margin: 0}}>{moment(post.date).format("MMM Do YYYY")}</H4>
 						</Col>
 						<Col>
 							<H4 style={{margin: 0}}>{post.readTime}</H4>
@@ -63,7 +64,7 @@ const Container = glamorous.div({
 	borderRadius: 6,
 	marginTop: 10,
 	marginBottom: 10,
-	transition: `all .35s ease-in-out`,
+	transition: `all .25s ease-in-out`,
 	WebkitBoxShadow: ` -1px 3px 26px -1px rgba(0,0,0,0.75)`,
 	MozBoxShadow: ` -1px 3px 26px -1px rgba(0,0,0,0.75)`,
 	OBoxShadow: ` -1px 3px 26px -1px rgba(0,0,0,0.75)`,

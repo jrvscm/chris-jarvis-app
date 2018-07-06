@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import glamorous from 'glamorous';
 import { isLoaded } from 'react-redux-firebase';
+import ReactLoading from 'react-loading'; 
+import { Loader } from '../UIElements';
+
 import LargePost from './LargePost';
 import SmallPost from './SmallPost';
 import CustomFooter from '../CustomFooter';
@@ -25,8 +28,11 @@ class Blog extends Component {
     } = this.props;
     
     if(loading === true || posts.length < 1) {
-      //TODO: replace with loading spinner
-      return (<div>...loading</div>)
+      return (
+        <Loader>
+          <ReactLoading color={'#03337f'} className='overlay-loading' />
+        </Loader>
+      )
     }///
 
     return(

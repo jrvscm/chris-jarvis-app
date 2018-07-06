@@ -13,6 +13,14 @@ export const Logo = glamorous.div({
   backgroundSize: `contain`
 })
 
+export const Loader = glamorous.div({
+  minHeight: `100vh`,
+  minWidth: `100vw`,
+  display: `flex`,
+  flexDirection: `row`,
+  justifyContent: `center`,
+  alignItems: `center`,
+})
 
 export const List = glamorous.ul({
 	display: `inline-flex`,
