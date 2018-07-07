@@ -5,7 +5,7 @@ import * as Markdown from 'react-markdown';
 import ReactLoading from 'react-loading';
 import moment from 'moment';
 
-
+import Background from '../../images/escheresque.png';
 import { Loader } from '../UIElements';
 import CodeBlock from './CodeBlock';
 import DesktopNav from '../DesktopNav';
@@ -126,9 +126,10 @@ const GlamorousMarkdown = glamorous(Markdown)({
 })
 
 const Container = glamorous.div({
+  backgroundImage: `url(${Background})`,
   height: `100%`,
   width: `100%`,
-  marginBottom: 100,
+  paddingBottom: 100,
   display: `flex`,
   flexDirection: `column`,
   justifyContent: `flex-start`,
