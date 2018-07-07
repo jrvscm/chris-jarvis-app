@@ -4,6 +4,7 @@ import { isLoaded } from 'react-redux-firebase';
 import ReactLoading from 'react-loading'; 
 import { Loader } from '../UIElements';
 
+import Background from '../../images/escheresque.png';
 import LargePost from './LargePost';
 import SmallPost from './SmallPost';
 import CustomFooter from '../CustomFooter';
@@ -138,9 +139,10 @@ const DoubleRow = glamorous.div({
 })
 
 const Container = glamorous.div({
+  backgroundImage: `url(${Background})`,
   height: `100%`,
   width: `100%`,
-  marginBottom: 100,
+  paddingBottom: 100,
   display: `flex`,
   flexDirection: `column`,
   justifyContent: `flex-start`,
