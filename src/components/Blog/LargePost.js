@@ -5,8 +5,8 @@ import { Avatar } from 'mdbreact';
 import GithubPhoto from '../../images/github-profile-photo.jpg';
 import moment from 'moment';
 
-const LargePost = ({post, posts, history, id}) => (
-	<Container onClick={() => history.push(`/blog/${id}`)}>
+const LargePost = ({post, posts, history, id, index}) => (
+	<Container index={index} onClick={() => history.push(`/blog/${id}`)}>
 		<MainRow>
 			<PostImageCol post={post}/>
 			<PostMetaCol>

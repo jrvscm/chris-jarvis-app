@@ -35,6 +35,7 @@ class Blog extends Component {
       )
     }///
 
+    //TODO: make loading blog posts more dynamic
     return(
       <Wrapper>
       <DesktopNav 
@@ -68,7 +69,7 @@ class Blog extends Component {
                 posts={posts} 
               />
               <SmallPost 
-                post={posts[2].sys.id}
+                id={posts[2].sys.id}
                 post={posts[2].fields}
                 posts={posts} 
               />
@@ -172,4 +173,3 @@ const H1 = glamorous.h1({
     letterSpacing: -2,
   }
 })
-

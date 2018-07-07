@@ -5,7 +5,9 @@ import * as Markdown from 'react-markdown';
 import ReactLoading from 'react-loading';
 import moment from 'moment';
 
+
 import { Loader } from '../UIElements';
+import CodeBlock from './CodeBlock';
 import DesktopNav from '../DesktopNav';
 import CustomFooter from '../CustomFooter';
 
@@ -61,7 +63,7 @@ class BlogPost extends Component {
               <PostImage image={post.fields.image} />
             </Row>
             <Col style={{marginTop: 25}}>
-              <GlamorousMarkdown source={post.fields.content} />
+              <GlamorousMarkdown source={post.fields.content} renderers={{code: CodeBlock}} />
             </Col>      
           </PostBody>     
         </Container>
