@@ -42,7 +42,6 @@ app.post('/sendmessage', bodyParser.json(), (req, res) => {
           <body>
           <div>
             <h1>From ${req.body.name}, ${req.body.email}, Subscribed: ${req.body.subscribe}</h1>
-
           <div>
           <div>
             <p>${req.body.message}</p>
@@ -67,6 +66,8 @@ app.post('/sendmessage', bodyParser.json(), (req, res) => {
     email: responseMessage
   })
 })
+
+//TODO: Dynamically insert meta tags for blogposts
 
 app.use(express.static(path.resolve(__dirname, './build')));
 

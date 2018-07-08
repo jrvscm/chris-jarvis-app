@@ -82,7 +82,7 @@ const mediaQueries = {
 }
 
 const PostImage = glamorous.div({
-  height: `30vh`,
+  height: `50vh`,
   width: `100%`,
   borderTopRightRadius: 6,
   borderTopLeftRadius: 6,

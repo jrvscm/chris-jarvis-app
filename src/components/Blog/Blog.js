@@ -10,6 +10,22 @@ import SmallPost from './SmallPost';
 import CustomFooter from '../CustomFooter';
 import DesktopNav from '../DesktopNav';
 
+/*
+TODO: write two more posts for this
+            <DoubleRow>
+              <SmallPost 
+                id={posts[1].sys.id}
+                post={posts[1].fields}
+                posts={posts} 
+              />
+              <SmallPost 
+                id={posts[2].sys.id}
+                post={posts[2].fields}
+                posts={posts} 
+              />
+            </DoubleRow>
+*/
+
 class Blog extends Component {
   componentDidMount() {
     const { fetchPosts } = this.props
@@ -63,18 +79,6 @@ class Blog extends Component {
                 posts={posts} 
               />
             </Row>
-            <DoubleRow>
-              <SmallPost 
-                id={posts[1].sys.id}
-                post={posts[1].fields}
-                posts={posts} 
-              />
-              <SmallPost 
-                id={posts[2].sys.id}
-                post={posts[2].fields}
-                posts={posts} 
-              />
-            </DoubleRow>
           </Feed>
         </Container>
         <CustomFooter />
