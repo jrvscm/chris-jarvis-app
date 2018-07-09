@@ -1,6 +1,8 @@
 require('dotenv').config();
 
 const express = require("express");
+const fs = require('fs');
+const request = require('request');
 const path = require("path");
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -21,6 +23,34 @@ const firebaseConfig = {
   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID
 };
+
+const firebase = require('firebase');
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+const db = firebaseApp.database();
+
+app.get('/home', (req, res) => {
+  //TODO: add analytics here
+  html = fs.readFileSync(`${__dirname}/build/index.html`, 'utf8');
+    const _IMAGE_ = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/github-profile-photo.jpg';
+    const _DESCRIPTION_ = `Chris Jarvis is a Node.js and React/Redux developer from Gillette Wyoming. He enjoys traveling the far reaches of the earth and working remotely.`;
+    const _URL_ = 'https://chrisjarvis.app';
+    const _TITLE_ = 'Chris Jarvis';    
+    
+    const title = _TITLE_;
+    const description = _DESCRIPTION_;
+    const url = _URL_;
+    const image = _IMAGE_;
+
+    const keys = [_TITLE_, _DESCRIPTION_, _URL_, _IMAGE_];
+    const values = [title, description, url, image];
+
+      keys.map( (key, index) => {
+        const value = values[index];
+        html = html.replace(key, value);
+      })
+
+    res.send(html);
+  })
 
 app.post('/sendmessage', bodyParser.json(), (req, res) => {
   const auth = {
@@ -67,7 +97,9 @@ app.post('/sendmessage', bodyParser.json(), (req, res) => {
   })
 })
 
-//TODO: Dynamically insert meta tags for blogposts
+//TODO: Dynamically insert meta tags for blogposts 
+
+
 
 app.use(express.static(path.resolve(__dirname, './build')));
 
