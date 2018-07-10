@@ -31,10 +31,10 @@ const db = firebaseApp.database();
 const _IMAGE_ = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/1150197/github-profile-photo.jpg";
 const _DESCRIPTION_ = "Chris Jarvis is a Node.js and React/Redux developer from Gillette Wyoming. He enjoys traveling the far reaches of the earth and working remotely.";
 const _URL_ = "https://chrisjarvis.app";
-const _TITLE_ = "Chris Jarvis";  
+const _TITLE_ = "Chris Jarvis App";  
 
-app.get('/home', (req, res) => {
-  //TODO: add analytics here
+app.get('/', (req, res) => {
+  //TODO: add results for other pages
   const filePath = path.resolve(__dirname, './build', 'index.html')
   fs.readFile(filePath, 'utf8', (err, data) => {
     if(err) {
