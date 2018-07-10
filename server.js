@@ -50,6 +50,26 @@ app.get('/', (req, res) => {
   })
 })
 
+//TODO: find a way to SSR the blog post meta data
+app.get('/blog/:postId', (req, res) => {
+  const { postId } = req.params;
+  const filePath = path.resolve(__dirname, './build', 'index.html')
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if(err) {
+      return console.log(err);
+    }
+      db.ref(`posts/${postId}`).once('value', snapshot => {
+      const post = snapshot.val();
+        data = data.replace(/\_TITLE_/, post.title);
+        data = data.replace(/\_DESCRIPTION_/, post.description);
+        data = data.replace(/\_URL_/, post.url);
+        result = data.replace(/\_IMAGE_/, post.image);
+
+      res.send(result);
+    })
+  })
+})
+
 app.post('/sendmessage', bodyParser.json(), (req, res) => {
   const auth = {
     type: 'OAuth2',
