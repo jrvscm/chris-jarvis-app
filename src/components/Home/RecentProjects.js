@@ -19,7 +19,7 @@ class RecentProjects extends Component {
                 </a>
               </View>
               <CardBody className="pb-0">
-                <a href="" className="green-text"><h5 className="font-weight-bold mt-2 mb-3"><Icon icon={code} /> HTML5, CSS3, React/Redux, Firebase, Node.js, Express</h5></a>
+                <h5 className="font-weight-bold mt-2 mb-3 green-text"><Icon icon={code} /> HTML5, CSS3, React/Redux, Firebase, Node.js, Express</h5>
                 <h4 className="font-weight-bold mb-3">Mobile Scriptd</h4>
                 <p>Mobile Scriptd is a script reading and sharing application. It allows users to read movie scripts utilizing a very unique reading experience. Authors and users can make separate profiles and contribute to the community. The app connects script writers with movie producers!</p>
                 <a href="https://mobile.scriptd.com" target="_blank"><Button color="success" rounded>View more</Button></a>
@@ -33,7 +33,7 @@ class RecentProjects extends Component {
                 </a>
               </View>
               <CardBody className="pb-0">
-                <a href="" className="blue-text"><h5 className="font-weight-bold mt-2 mb-3"><Icon icon={code} /> HTML5, CSS3, JavaScript, React/Redux, Enzyme, Node.js, Express, MongoDB</h5></a>
+                <h5 className="font-weight-bold mt-2 mb-3 blue-text"><Icon icon={code} /> HTML5, CSS3, JavaScript, React/Redux, Enzyme, Node.js, Express, MongoDB</h5>
                 <h4 className="font-weight-bold mb-3">Habitualize</h4>
                 <p>Habitualize is a full stack habit tracking application, built with React/Redux and Node.js. Habitualize provides users a way to create and track habits they find useful. Progress can be viewed through a current/best streak implementation and personalized charts and statistics.</p>
                 <a href="https://github.com/jrvscm/habitualize-client" target="_blank"><Button color="success" rounded>View more</Button></a>
@@ -47,7 +47,7 @@ class RecentProjects extends Component {
                 </a>
               </View>
               <CardBody className="pb-0">
-                <a href="" className="brown-text"><h5 className="font-weight-bold mt-2 mb-3"><Icon icon={code} /> HTML5, CSS3, JavaScript, jQuery, Node.js, Express, MongoDB, Mocha, Chai</h5></a>
+                <h5 className="font-weight-bold mt-2 mb-3 brown-text"><Icon icon={code} /> HTML5, CSS3, JavaScript, jQuery, Node.js, Express, MongoDB, Mocha, Chai</h5>
                 <h4 className="font-weight-bold mb-3">Strength Tracker</h4>
                 <p>Strength Tracker is a weight lifting tracker that allows users to track their lifts and view their progress in the gym. Users can create an account and track workouts, exercises, set weight, and reps through the user interface. Each exercise is viewable in a line-chart so users can see how they're progressing.</p>
                 <a href="https://github.com/jrvscm/strength-tracker" target="_blank"><Button color="success" rounded>View more</Button></a>
@@ -61,7 +61,7 @@ class RecentProjects extends Component {
                 </a>
               </View>
               <CardBody className="pb-0">
-                <a href="" className="cyan-text"><h5 className="font-weight-bold mt-2 mb-3"><Icon icon={code} /> HTML5, CSS3, JavaScript, jQuery</h5></a>
+                <h5 className="font-weight-bold mt-2 mb-3 cyan-text"><Icon icon={code} /> HTML5, CSS3, JavaScript, jQuery</h5>
                 <h4 className="font-weight-bold mb-3">Brewery Tour</h4>
                 <p>Brewery tour connects craft beer enthusiasts with their favorite breweries. The app utilizes the BreweryDB API and the GoogleMaps API to create an exploratory, beer finding experience.</p>
                <a href="https://github.com/jrvscm/Brewery-Tour-App" target="_blank"><Button color="success" rounded>View more</Button></a>
